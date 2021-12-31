@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="99.Headers">
+      <UniqueIdentifier>{3f82b75b-7eaa-4333-9fb3-4b2ca35305bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.MainGame">
+      <UniqueIdentifier>{ab17e9b0-7bc4-489b-acc0-f6579a00bc89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Object">
+      <UniqueIdentifier>{82bf9921-c65b-4a09-a667-5581e3040ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Object\00.Player">
+      <UniqueIdentifier>{e11f89dd-b061-4e70-af46-da569e1364d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Object\01.Bullet">
+      <UniqueIdentifier>{03bca586-facc-4d66-82bc-80c98e09f849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Object\02.Monster">
+      <UniqueIdentifier>{ecd1d1d9-0eab-4cb3-8afe-40ca983f5e98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.CollisionMgr">
+      <UniqueIdentifier>{b66bb4b7-acae-4140-874c-8f70d9c1fc79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Mouse">
+      <UniqueIdentifier>{28273f0d-3384-479f-9ea6-8aa3588b7461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.BmpMgr">
+      <UniqueIdentifier>{0ffcd143-ca41-4cbc-be31-3608d781dcb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.BmpMgr\00.Bmp">
+      <UniqueIdentifier>{ac70a8c4-262a-473e-a7f7-5d79aa897a2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr">
+      <UniqueIdentifier>{e09dc7f9-ff45-4a22-bd43-32983f2adc5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene">
+      <UniqueIdentifier>{a4eb0430-d6b3-49b5-b2ec-6eb896342737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene\00.Logo">
+      <UniqueIdentifier>{665c9cf9-282a-4702-a32c-8b64cac864dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene\01.Stage">
+      <UniqueIdentifier>{647fd245-b79e-493a-a2bf-86e3eee68672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene\02.Lobby">
+      <UniqueIdentifier>{847f2977-1eb3-420d-b594-78f113edf126}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MHF.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>00.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>01.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>01.Object\00.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>01.Object\01.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Functional.h">
+      <Filter>99.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>01.Object\02.Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionMgr.h">
+      <Filter>02.CollisionMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>03.Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="BmpMgr.h">
+      <Filter>04.BmpMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Bmp.h">
+      <Filter>04.BmpMgr\00.Bmp</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>05.SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>05.SceneMgr\00.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>05.SceneMgr\00.Scene\00.Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>05.SceneMgr\00.Scene\01.Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Lobby.h">
+      <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MHF.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>00.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>01.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>01.Object\00.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>01.Object\01.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>01.Object\02.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionMgr.cpp">
+      <Filter>02.CollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>03.Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="BmpMgr.cpp">
+      <Filter>04.BmpMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Bmp.cpp">
+      <Filter>04.BmpMgr\00.Bmp</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>05.SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>05.SceneMgr\00.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>05.SceneMgr\00.Scene\00.Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>05.SceneMgr\00.Scene\01.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Lobby.cpp">
+      <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MHF.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="MHF.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2 @@
+#pragma once
+enum{PLAYER,BULLET,MONSTER,MOUSE,END};
