@@ -5,4 +5,7 @@
 #define LIVE 0
 #define DEAD 1
 #define PI 3.14
+#define TILECX 40
+#define TILECY 40
+
 extern HWND  g_hWnd ;

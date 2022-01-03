@@ -23,7 +23,7 @@ public:
 
 private:
 	void KeyInput();
-	void CreateBullet(int dir);
+	void CreateBullet();
 
 private:
 	Bullet* bullet;

@@ -58,6 +58,12 @@
     <Filter Include="05.SceneMgr\00.Scene\02.Lobby">
       <UniqueIdentifier>{847f2977-1eb3-420d-b594-78f113edf126}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.TileMgr">
+      <UniqueIdentifier>{804fed35-bbf8-490d-86fd-5933bf34a10a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.TileMgr\00.Tile">
+      <UniqueIdentifier>{96eb2c6e-a1e2-423a-95d6-66d24ac8f29d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -129,6 +135,12 @@
     <ClInclude Include="Lobby.h">
       <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
     </ClInclude>
+    <ClInclude Include="TileMgr.h">
+      <Filter>06.TileMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>06.TileMgr\00.Tile</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -178,6 +190,12 @@
     </ClCompile>
     <ClCompile Include="Lobby.cpp">
       <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMgr.cpp">
+      <Filter>06.TileMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>06.TileMgr\00.Tile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

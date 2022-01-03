@@ -23,6 +23,8 @@ public:
 public:
 	RECT& GetRect();
 	INFO& GetInfo();
+
+	void setPos(float x, float y);
 	void setDead();
 protected:
 	INFO info;

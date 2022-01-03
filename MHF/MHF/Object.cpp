@@ -33,6 +33,12 @@ INFO & Object::GetInfo()
 	return info;
 }
 
+void Object::setPos(float x, float y)
+{
+	info.fX = x;
+	info.fY = y;
+}
+
 void Object::setDead()
 {
 	isDead = true;

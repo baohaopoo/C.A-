@@ -18,6 +18,10 @@ public:
 	virtual void Render(HDC hDC);
 	virtual void Release();
 
+public:
+	void isPicking();
+
+private:
 	Object* player;
 	Object* monster;
 	Object* mouse;

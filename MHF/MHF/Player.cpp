@@ -8,6 +8,7 @@ Player::Player()
 
 
 Player::~Player()
+
 {
 }
 
@@ -17,13 +18,17 @@ void Player::Initialize()
 	
 	info.fX = 300.f;
 	info.fY = 400.f;
-	info.fCX = 56.f;
-	info.fCY = 56.f;
+	info.fCX = 49.f;
+	info.fCY = 70.f;
 
 	info.fSpeed = 15.f;
+	BmpMgr::getInstance()->InsertBmp(L"WALKDOWN", L"../Image/WalkDown/WalkDown.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/WalkUp.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/WalkRight.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/WalkLeft.bmp");
 
-	BmpMgr::getInstance()->InsertBmp(L"WALK_LEFT", L"../Image/WalkLeft/WalkLeft(0).bmp");
-	//frameKey = L"WALK_LEFT";
+	frameKey = L"WALKUP";
+
 	//curstance = IDLE;
 	//prestance = curstance;
 
@@ -48,24 +53,19 @@ int Player::Update()
 
 void Player::LateUpdate()
 {
-	barrel.x = info.fX + 50 * cosf(angle*(PI / 180));
-	barrel.y = info.fY - 50 * sinf(angle*(PI / 180));
+	//barrel.x = info.fX + 50 * cosf(angle*(PI / 180));
+	//barrel.y = info.fY - 50 * sinf(angle*(PI / 180));
 }
 
 void Player::Render(HDC hdc)
 {
-	HDC memDC = BmpMgr::getInstance()->FindImage(L"WALK_LEFT");
-	//if (nullptr == memDC)return;
-	BitBlt(hdc, 0, 0, WINCX, WINCY, memDC, 0, 0, SRCCOPY);
-	//BitBlt(hdc, rect.left, rect.top, rect.right, rect.bottom, memDC, 0, 0, SRCCOPY);
-	Rectangle(hdc, rect.left, rect.top, rect.right, rect.bottom);
-	//GdiTransparentBlt(hdc, rect.left, rect.top, (int)info.fCX, info.fCY,
-	//	memDC, m_tFrame.iFrameStart * (int)m_tInfo.fCX, m_tFrame.iScene * (int)m_tInfo.fCY,
-	//	info.fCX, info.fCY, RGB(0, 0, 0));
-	//
-	////Æ÷½Å
-	//MoveToEx(hdc, info.fX, info.fY, nullptr);
-	//LineTo(hdc, barrel.x, barrel.y);
+	HDC memDC = BmpMgr::getInstance()->FindImage(frameKey);
+	if (nullptr == memDC)return;
+
+
+	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC,0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
+	
+
 
 
 }
@@ -77,31 +77,36 @@ void Player::Release()
 void Player::KeyInput()
 {
 	if (GetAsyncKeyState(VK_LEFT)) {
-		if (!(80 >= info.fX))
+		frameKey = L"WALKLEFT";
+
+		if (!(50 >= info.fX))
 			info.fX -= info.fSpeed;
 		else
-			info.fX = 80;
+			info.fX = 50;
 	}
 
 	if (GetAsyncKeyState(VK_RIGHT)) {
-		if (!(WINCX-80 < info.fX))
+		frameKey = L"WALKRIGHT";
+		if (!(WINCX - 200 <= info.fX))
 			info.fX += info.fSpeed;
 		else
-			info.fX = WINCX - 80;
+			info.fX = WINCX - 200;
 	}
 
 	if (GetAsyncKeyState(VK_UP)) {
-		if (!(80 > info.fY))
+		frameKey = L"WALKUP";
+		if (!(70 >= info.fY))
 			info.fY -= info.fSpeed;
 		else
-			info.fY = 80;
+			info.fY = 70;
 	}
 
 	if (GetAsyncKeyState(VK_DOWN)) {
-		if (!(WINCY-80 < info.fY))
+		frameKey = L"WALKDOWN";
+		if (!(WINCY - 70 <= info.fY))
 			info.fY += info.fSpeed;
 		else
-			info.fY = WINCY - 80;
+			info.fY = WINCY - 70;
 	}
 
 	//±âÁ¸ ÃÑ¾Ë ½î´Â Å°
@@ -118,21 +123,25 @@ void Player::KeyInput()
 	//	CreateBullet(4);
 
 
-	if (GetAsyncKeyState('W'))
+	/*if (GetAsyncKeyState('W'))
 		CreateBullet(1);
 
-	if (GetAsyncKeyState('S')) 
+	if (GetAsyncKeyState('S'))
 		CreateBullet(2);
 
 	if (GetAsyncKeyState('D'))
 		angle += 5;
 
 	if (GetAsyncKeyState('A'))
-		angle -= 5;
+		angle -= 5;*/
+
+	if (GetAsyncKeyState(VK_SPACE)){
+		CreateBullet();
+	}
 }
 
 
-void Player::CreateBullet(int dir)
+void Player::CreateBullet()
 {
 	if (dwTime + 260<GetTickCount())
 	{
@@ -145,7 +154,7 @@ void Player::CreateBullet(int dir)
 
 		bullet->Initialize();
 
-		bullet->setDir(dir);
+		//bullet->setDir(dir);
 		bulletBucket->push_back(bullet);
 
 		dwTime = GetTickCount();

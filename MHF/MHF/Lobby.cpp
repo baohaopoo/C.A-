@@ -15,7 +15,7 @@ Lobby::~Lobby()
 
 void Lobby::Initialize()
 {
-	/*BmpMgr::getInstance()->InsertBmp(L"Lobby", "../Image/");*/
+	BmpMgr::getInstance()->InsertBmp(L"Lobby", L"../Image/lobby.bmp");
 }
 
 void Lobby::Update()
@@ -34,7 +34,13 @@ void Lobby::LateUpdate()
 
 void Lobby::Render(HDC hDC)
 {
-	Rectangle(hDC, 0, 0, WINCX, WINCY);
+	HDC memDC = BmpMgr::getInstance()->FindImage(L"Lobby");
+	if (nullptr == memDC)
+		return;
+
+	BitBlt(hDC, 0, 0, WINCX, WINCY, memDC, 0, 0, SRCCOPY);
+	
+
 }
 
 void Lobby::Release()
