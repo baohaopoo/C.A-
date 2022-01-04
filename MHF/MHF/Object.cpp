@@ -6,6 +6,8 @@ Object::Object()
 {
 	ZeroMemory(&info, sizeof(INFO));
 	ZeroMemory(&rect, sizeof(RECT));
+	ZeroMemory(&frame, sizeof(FRAME));
+
 	isDead = false;
 }
 
@@ -42,4 +44,16 @@ void Object::setPos(float x, float y)
 void Object::setDead()
 {
 	isDead = true;
+}
+
+void Object::MoveFrame()
+{
+	if (frame.OldTime + frame.Speed < GetTickCount()) {
+		frame.startX++;
+		frame.OldTime = GetTickCount();
+	}
+
+	if (frame.startX > frame.EndX)
+		frame.startX = 0;
+
 }

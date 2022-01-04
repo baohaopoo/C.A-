@@ -26,12 +26,17 @@ public:
 
 	void setPos(float x, float y);
 	void setDead();
+
+protected:
+	void MoveFrame();
+
 protected:
 	INFO info;
 	RECT rect;
 	bool isDead;
-
 	Frame frame;
+
+
 
 };
 

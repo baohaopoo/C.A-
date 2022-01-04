@@ -52,9 +52,6 @@
     <Filter Include="05.SceneMgr\00.Scene\00.Logo">
       <UniqueIdentifier>{665c9cf9-282a-4702-a32c-8b64cac864dc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="05.SceneMgr\00.Scene\01.Stage">
-      <UniqueIdentifier>{647fd245-b79e-493a-a2bf-86e3eee68672}</UniqueIdentifier>
-    </Filter>
     <Filter Include="05.SceneMgr\00.Scene\02.Lobby">
       <UniqueIdentifier>{847f2977-1eb3-420d-b594-78f113edf126}</UniqueIdentifier>
     </Filter>
@@ -63,6 +60,12 @@
     </Filter>
     <Filter Include="06.TileMgr\00.Tile">
       <UniqueIdentifier>{96eb2c6e-a1e2-423a-95d6-66d24ac8f29d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene\03.Stage">
+      <UniqueIdentifier>{647fd245-b79e-493a-a2bf-86e3eee68672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene\01.Start">
+      <UniqueIdentifier>{aeba21ed-76ca-4082-be2e-87494755db89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +133,7 @@
       <Filter>05.SceneMgr\00.Scene\00.Logo</Filter>
     </ClInclude>
     <ClInclude Include="Stage.h">
-      <Filter>05.SceneMgr\00.Scene\01.Stage</Filter>
+      <Filter>05.SceneMgr\00.Scene\03.Stage</Filter>
     </ClInclude>
     <ClInclude Include="Lobby.h">
       <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
@@ -140,6 +143,15 @@
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>06.TileMgr\00.Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Start.h">
+      <Filter>05.SceneMgr\00.Scene\01.Start</Filter>
+    </ClInclude>
+    <ClInclude Include="StartBtn.h">
+      <Filter>05.SceneMgr\00.Scene\01.Start</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyStnBtn.h">
+      <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +198,7 @@
       <Filter>05.SceneMgr\00.Scene\00.Logo</Filter>
     </ClCompile>
     <ClCompile Include="Stage.cpp">
-      <Filter>05.SceneMgr\00.Scene\01.Stage</Filter>
+      <Filter>05.SceneMgr\00.Scene\03.Stage</Filter>
     </ClCompile>
     <ClCompile Include="Lobby.cpp">
       <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
@@ -196,6 +208,15 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>06.TileMgr\00.Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="Start.cpp">
+      <Filter>05.SceneMgr\00.Scene\01.Start</Filter>
+    </ClCompile>
+    <ClCompile Include="StartBtn.cpp">
+      <Filter>05.SceneMgr\00.Scene\01.Start</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyStnBtn.cpp">
+      <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

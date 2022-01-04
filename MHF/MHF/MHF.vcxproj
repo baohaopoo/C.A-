@@ -153,6 +153,7 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Functional.h" />
     <ClInclude Include="Lobby.h" />
+    <ClInclude Include="LobbyStnBtn.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="MHF.h" />
@@ -164,6 +165,8 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="Start.h" />
+    <ClInclude Include="StartBtn.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
@@ -176,6 +179,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Lobby.cpp" />
+    <ClCompile Include="LobbyStnBtn.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="MHF.cpp" />
@@ -186,6 +190,8 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Start.cpp" />
+    <ClCompile Include="StartBtn.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -21,13 +21,14 @@ void Player::Initialize()
 	info.fCX = 49.f;
 	info.fCY = 70.f;
 
-	info.fSpeed = 15.f;
+	info.fSpeed = 15.f;  
+	//BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/idle.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKDOWN", L"../Image/WalkDown/WalkDown.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/WalkUp.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/WalkRight.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/WalkLeft.bmp");
 
-	frameKey = L"WALKUP";
+	frameKey = L"WALKDOWN";
 
 	//curstance = IDLE;
 	//prestance = curstance;

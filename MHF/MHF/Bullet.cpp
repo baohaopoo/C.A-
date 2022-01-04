@@ -14,12 +14,26 @@ Bullet::~Bullet()
 
 void Bullet::Initialize()
 {
-	info.fCX = 44.f;
-	info.fCY = 41.f;
+
+
+	BmpMgr::getInstance()->InsertBmp(L"IDLEBOMB", L"../Image/bomb.bmp");
+
+	framekey = L"IDLEBOMB";
+	curstance = IDLEBOMB;
+	prestance = curstance;
+
+
+	frame.startX = 0;
+	frame.EndX = 2;
+	frame.startY = 0;
+	frame.OldTime = GetTickCount();
+	frame.Speed = 10;
+
+	info.fCX = 57.f;
+	info.fCY = 51.f;
 	isDead = false;
 	info.fSpeed = 10.f;
 
-	BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/Idle0.bmp");
 }
 
 
@@ -35,7 +49,8 @@ int Bullet::Update()
 			
 	UpdateRect();
 		
-	
+	framekey = L"IDLEBOMB";
+	curstance = IDLEBOMB;
 
 	return LIVE;
 
@@ -45,20 +60,19 @@ int Bullet::Update()
 void Bullet::LateUpdate()
 {
 
-
-
 	/*if (50 >= rect.left || WINCX - 50 <= rect.right||
 		50 >= rect.top || WINCY - 50 <= rect.bottom) {
 		isDead = true;
 	}*/
-
+	MoveFrame();
+	frameChange();
 
 }
 
 void Bullet::Render(HDC hdc)
 {
 
-	HDC memDC = BmpMgr::getInstance()->FindImage(L"IDLE");
+	HDC memDC = BmpMgr::getInstance()->FindImage(L"IDLEBOMB");
 	if (nullptr == memDC)return;
 
 
@@ -83,4 +97,26 @@ void Bullet::setPos(float x, float y)
 {
 	info.fX = x;
 	info.fY = y;
+}
+
+void Bullet::frameChange()
+{
+	if (prestance != curstance)
+	{
+		switch (curstance)
+		{
+		case IDLEBOMB:
+			frame.startX = 0;
+			frame.EndX = 2;
+			frame.startY = 0;
+			frame.OldTime = GetTickCount();
+			frame.Speed = 10;
+			break;
+
+
+		default:
+			break;
+		}
+		prestance = curstance;
+	}
 }

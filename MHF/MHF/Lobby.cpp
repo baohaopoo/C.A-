@@ -16,19 +16,17 @@ Lobby::~Lobby()
 void Lobby::Initialize()
 {
 	BmpMgr::getInstance()->InsertBmp(L"Lobby", L"../Image/lobby.bmp");
+	lsBtn.Initialize();
 }
 
 void Lobby::Update()
 {
+	lsBtn.Update();
 }
 
 void Lobby::LateUpdate()
 {
-	if (GetAsyncKeyState(VK_RETURN))
-	{
-		SceneMgr::GetInstance()->SceneChange(SceneMgr::STAGE);
-		return;
-	}
+	lsBtn.LateUpdate();
 	
 }
 
@@ -40,6 +38,7 @@ void Lobby::Render(HDC hDC)
 
 	BitBlt(hDC, 0, 0, WINCX, WINCY, memDC, 0, 0, SRCCOPY);
 	
+	lsBtn.Render(hDC);
 
 }
 

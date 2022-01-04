@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "LobbyStnBtn.h"
 class Lobby : public Scene
 {
 public:
@@ -12,5 +13,8 @@ public:
 	virtual void LateUpdate();
 	virtual void Render(HDC hDC);
 	virtual void Release();
+
+private:
+	LobbyStnBtn lsBtn;
 };
 

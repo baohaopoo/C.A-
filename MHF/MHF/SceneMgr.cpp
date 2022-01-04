@@ -4,6 +4,7 @@
 #include "Logo.h"
 #include "Stage.h"
 #include "Lobby.h"
+#include "Start.h"
 SceneMgr* SceneMgr::instance = nullptr;
 
 SceneMgr * SceneMgr::GetInstance()
@@ -46,6 +47,9 @@ void SceneMgr::SceneChange(SCENE sc)
 		{
 		case LOGO:
 			psc = new Logo;
+			break;
+		case START:
+			psc = new Start;
 			break;
 		case LOBBY:
 			psc = new Lobby;
