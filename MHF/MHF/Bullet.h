@@ -3,7 +3,7 @@
 class Bullet : public Object
 {
 public:
-	enum STANCE { IDLEBOMB,END};
+	enum STANCE { IDLEBOMB,test,END};
 public:
 	Bullet();
 	virtual ~Bullet();
@@ -26,5 +26,7 @@ private:
 	TCHAR* framekey;
 	STANCE curstance;
 	STANCE prestance;
+
+	DWORD bombTime = GetTickCount();
 };
 

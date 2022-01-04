@@ -20,6 +20,7 @@ public:
 
 public:
 	void SetBulletList(list<Object*>* bulletLst);
+	void frameChange();
 
 private:
 	void KeyInput();
@@ -33,7 +34,7 @@ private:
 private:
 	POINT barrel;
 	float angle;
-
+	
 private:
 	TCHAR* frameKey;
 	STANCE curstance;

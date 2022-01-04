@@ -18,24 +18,30 @@ void Player::Initialize()
 	
 	info.fX = 300.f;
 	info.fY = 400.f;
-	info.fCX = 49.f;
+	info.fCX = 53.f; //down¿ë49
 	info.fCY = 70.f;
 
+	//info.fCX = 65.f;	//right ¿ë
+	//info.fCY = 72.f;
+
 	info.fSpeed = 15.f;  
-	//BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/idle.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/ddd.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKDOWN", L"../Image/WalkDown/WalkDown.bmp");
-	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/WalkUp.bmp");
-	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/WalkRight.bmp");
-	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/WalkLeft.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/wu.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/wr.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/wl.bmp");
 
-	frameKey = L"WALKDOWN";
+	//IDLE Å°º¸µå ¶¼´Â ¼ø°£ .
+	//frameKey = L"WALKDOWN";
 
-	//curstance = IDLE;
-	//prestance = curstance;
+	frameKey = L"IDLE";
+	curstance = IDLE;
+	prestance = curstance; 
 
-	//frame.startX = 0;
-	//frame.EndX = 56;
-	//frame.
+	frame.startX = 0;
+	frame.EndX = 3;
+	frame.startY = 0;
+
 
 }
 
@@ -44,9 +50,11 @@ int Player::Update()
 {
 	if (true == isDead)
 		return DEAD;
-
 	KeyInput();
+
 	UpdateRect();
+	
+
 
 	return LIVE;
 
@@ -56,6 +64,14 @@ void Player::LateUpdate()
 {
 	//barrel.x = info.fX + 50 * cosf(angle*(PI / 180));
 	//barrel.y = info.fY - 50 * sinf(angle*(PI / 180));
+
+	//MoveFrame();
+	//if (down < 3) {
+	//	frame.startX++;
+
+	//}
+	//else if (down > 3) down = 0;
+	frameChange();
 }
 
 void Player::Render(HDC hdc)
@@ -64,8 +80,9 @@ void Player::Render(HDC hdc)
 	if (nullptr == memDC)return;
 
 
-	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC,0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
-	
+	//GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC,0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
+	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,
+		frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
 
 
 
@@ -77,8 +94,14 @@ void Player::Release()
 
 void Player::KeyInput()
 {
-	if (GetAsyncKeyState(VK_LEFT)) {
+
+	
+	if (GetAsyncKeyState(VK_LEFT)&0x8000) {
 		frameKey = L"WALKLEFT";
+
+		frame.startY++;
+		if (frame.startY > 3)
+			frame.startY = 0;
 
 		if (!(50 >= info.fX))
 			info.fX -= info.fSpeed;
@@ -86,29 +109,57 @@ void Player::KeyInput()
 			info.fX = 50;
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT)) {
+	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
 		frameKey = L"WALKRIGHT";
+
+		frame.startY++;
+		if (frame.startY > 3)
+			frame.startY = 0;
+
 		if (!(WINCX - 200 <= info.fX))
 			info.fX += info.fSpeed;
 		else
 			info.fX = WINCX - 200;
 	}
 
-	if (GetAsyncKeyState(VK_UP)) {
+	if (GetAsyncKeyState(VK_UP) & 0x8000) {
 		frameKey = L"WALKUP";
+
+		frame.startY++;
+		if (frame.startY > 3)
+			frame.startY = 0;
+
 		if (!(70 >= info.fY))
 			info.fY -= info.fSpeed;
 		else
 			info.fY = 70;
 	}
 
-	if (GetAsyncKeyState(VK_DOWN)) {
+	if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
 		frameKey = L"WALKDOWN";
+		
+		frame.startY++;
+		if (frame.startY > 3)
+			frame.startY = 0;
+
 		if (!(WINCY - 70 <= info.fY))
 			info.fY += info.fSpeed;
 		else
 			info.fY = WINCY - 70;
 	}
+
+
+
+
+	//if (!(GetAsyncKeyState(VK_UP) & 0x8000))
+	//	frameKey = L"IDLE";
+
+	//if (!(GetAsyncKeyState(VK_DOWN) & 0x8000))
+	//	frameKey = L"IDLE";
+
+	//if (!(GetAsyncKeyState(VK_DOWN) & 0x8000))
+	//	frameKey = L"IDLE";
+
 
 	//±âÁ¸ ÃÑ¾Ë ½î´Â Å°
 	//if (GetAsyncKeyState('W'))
@@ -165,5 +216,26 @@ void Player::CreateBullet()
 void Player::SetBulletList(list<Object*>* bulletLst)
 {
 	bulletBucket = bulletLst;
+}
+
+void Player::frameChange()
+{
+	if (prestance != curstance)
+	{
+		switch (curstance)
+		{
+		/*case IDLE:
+			frame.startX = 0;
+			frame.EndX = 3;
+			frame.startY = 0;
+			
+			break;
+
+
+		default:
+			break;*/
+		}
+		prestance = curstance;
+	}
 }
 

@@ -16,7 +16,8 @@ void Bullet::Initialize()
 {
 
 
-	BmpMgr::getInstance()->InsertBmp(L"IDLEBOMB", L"../Image/bomb.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"IDLEBOMB", L"../Image/ab.bmp"); //bomb
+	BmpMgr::getInstance()->InsertBmp(L"test", L"../Image/bb.bmp");
 
 	framekey = L"IDLEBOMB";
 	curstance = IDLEBOMB;
@@ -27,10 +28,10 @@ void Bullet::Initialize()
 	frame.EndX = 2;
 	frame.startY = 0;
 	frame.OldTime = GetTickCount();
-	frame.Speed = 10;
+	frame.Speed = 200;
 
-	info.fCX = 57.f;
-	info.fCY = 51.f;
+	info.fCX = 53.f;
+	info.fCY = 55.f;
 	isDead = false;
 	info.fSpeed = 10.f;
 
@@ -52,6 +53,7 @@ int Bullet::Update()
 	framekey = L"IDLEBOMB";
 	curstance = IDLEBOMB;
 
+
 	return LIVE;
 
 	
@@ -60,23 +62,27 @@ int Bullet::Update()
 void Bullet::LateUpdate()
 {
 
-	/*if (50 >= rect.left || WINCX - 50 <= rect.right||
-		50 >= rect.top || WINCY - 50 <= rect.bottom) {
-		isDead = true;
-	}*/
 	MoveFrame();
 	frameChange();
 
+	if (bombTime + 2300 < GetTickCount())
+	{
+		framekey = L"test";
+		curstance = test;
+		isDead = true;
+	}
 }
+
 
 void Bullet::Render(HDC hdc)
 {
 
-	HDC memDC = BmpMgr::getInstance()->FindImage(L"IDLEBOMB");
+	HDC memDC = BmpMgr::getInstance()->FindImage(framekey);
 	if (nullptr == memDC)return;
 
 
-	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, 0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
+	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,
+		frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
 
 
 
@@ -113,6 +119,13 @@ void Bullet::frameChange()
 			frame.Speed = 10;
 			break;
 
+		case test:
+			frame.startX = 0;
+			frame.EndX = 3;
+			frame.startY = 0;
+			frame.OldTime = GetTickCount();
+			frame.Speed = 10;
+			break;
 
 		default:
 			break;
