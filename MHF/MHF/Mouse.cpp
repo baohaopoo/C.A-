@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Mouse.h"
+#include "BmpMgr.h"
 
 
 Mouse::Mouse()
@@ -16,6 +17,8 @@ void Mouse::Initialize()
 {
 	info.fCX = 10.f;
 	info.fCY = 10.f;
+
+	BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/IdleMouse.bmp");
 }
 
 int Mouse::Update()

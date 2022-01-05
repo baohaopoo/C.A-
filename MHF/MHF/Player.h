@@ -6,7 +6,7 @@
 class Player : public Object
 {
 public:
-	enum STANCE{IDLE, WALK,END};
+	enum STANCE{IDLE, WALK,BOMB,END};
 public:
 	Player();
 	virtual ~Player();
@@ -25,6 +25,7 @@ public:
 private:
 	void KeyInput();
 	void CreateBullet();
+
 
 private:
 	Bullet* bullet;

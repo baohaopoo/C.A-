@@ -153,6 +153,9 @@
     <ClInclude Include="LobbyStnBtn.h">
       <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
     </ClInclude>
+    <ClInclude Include="StartUI.h">
+      <Filter>05.SceneMgr\00.Scene\03.Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -217,6 +220,9 @@
     </ClCompile>
     <ClCompile Include="LobbyStnBtn.cpp">
       <Filter>05.SceneMgr\00.Scene\02.Lobby</Filter>
+    </ClCompile>
+    <ClCompile Include="StartUI.cpp">
+      <Filter>05.SceneMgr\00.Scene\03.Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

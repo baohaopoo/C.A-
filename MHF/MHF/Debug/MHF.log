@@ -1,4 +1,7 @@
-﻿  Bullet.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\bullet.cpp(85): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Mouse.cpp
+  코드를 생성하고 있습니다...
+  건너뛰고 있습니다... (관련된 변경 내용 없음)
+  Stage.cpp
+  SceneMgr.cpp
   MHF.vcxproj -> C:\Users\baohao\source\repos\3.crazy arcade git\C.A-\MHF\Debug\MHF.exe
   MHF.vcxproj -> C:\Users\baohao\source\repos\3.crazy arcade git\C.A-\MHF\Debug\MHF.pdb (Full PDB)

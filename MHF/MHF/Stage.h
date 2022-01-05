@@ -3,7 +3,7 @@
 #include"Player.h"
 #include"Monster.h"
 #include"Mouse.h"
-
+#include "StartUI.h"
 class Stage : public Scene
 {
 public:
@@ -26,7 +26,9 @@ private:
 	Object* monster;
 	Object* mouse;
 
+	DWORD dwTime = GetTickCount();
 	list<Object*> ObjList[END];
 
+	StartUI stui;
 };
 

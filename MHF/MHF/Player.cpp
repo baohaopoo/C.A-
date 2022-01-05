@@ -30,6 +30,7 @@ void Player::Initialize()
 	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/wu.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/wr.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/wl.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"BOMB", L"../Image/dead.bmp");
 
 	//IDLE 키보드 떼는 순간 .
 	//frameKey = L"WALKDOWN";
@@ -38,9 +39,12 @@ void Player::Initialize()
 	curstance = IDLE;
 	prestance = curstance; 
 
-	frame.startX = 0;
-	frame.EndX = 3;
-	frame.startY = 0;
+	frame.OldTime = GetTickCount();
+	frame.Speed = 200;
+
+	//frame.startX = 0;
+	//frame.EndX = 3;
+	//frame.startY = 0;
 
 
 }
@@ -48,12 +52,17 @@ void Player::Initialize()
   
 int Player::Update()
 {
-	if (true == isDead)
+	if (true == isDead) {
+
+
 		return DEAD;
+	}
+
+
 	KeyInput();
 
 	UpdateRect();
-	
+	ColliderUpdateRect();
 
 
 	return LIVE;
@@ -72,6 +81,20 @@ void Player::LateUpdate()
 	//}
 	//else if (down > 3) down = 0;
 	frameChange();
+
+
+	//충돌시
+	if (isCollision)
+	{
+		//약간 딜레이 되는 척..
+		if (dwTime + 2300 < GetTickCount()) {
+			frameKey = L"BOMB";
+			curstance = BOMB;
+		}
+
+
+
+	}
 }
 
 void Player::Render(HDC hdc)
@@ -84,6 +107,8 @@ void Player::Render(HDC hdc)
 	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,
 		frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
 
+	//충돌박스 
+	//Rectangle(hdc, colliderBox.left, colliderBox.top, colliderBox.right, colliderBox.bottom);
 
 
 }
@@ -91,6 +116,8 @@ void Player::Render(HDC hdc)
 void Player::Release()
 {
 }
+
+
 
 void Player::KeyInput()
 {
@@ -213,6 +240,8 @@ void Player::CreateBullet()
 	}
 }
 
+
+
 void Player::SetBulletList(list<Object*>* bulletLst)
 {
 	bulletBucket = bulletLst;
@@ -224,16 +253,22 @@ void Player::frameChange()
 	{
 		switch (curstance)
 		{
-		/*case IDLE:
+		//case IDLE:
+		//	frame.startX = 0;
+		//	frame.EndX = 3;
+		//	frame.startY = 0;
+		//	break;
+
+		case BOMB:
 			frame.startX = 0;
 			frame.EndX = 3;
 			frame.startY = 0;
-			
+			frame.OldTime = GetTickCount();
+			frame.Speed = 10;
 			break;
 
-
 		default:
-			break;*/
+			break;
 		}
 		prestance = curstance;
 	}

@@ -41,6 +41,7 @@ void Start::LateUpdate()
 	//	SceneMgr::GetInstance()->SceneChange(SceneMgr::LOBBY);
 	//	return;
 	//}
+
 }
 
 void Start::Render(HDC hDC)

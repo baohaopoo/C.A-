@@ -49,7 +49,8 @@ int Bullet::Update()
 
 			
 	UpdateRect();
-		
+	ColliderUpdateRect();
+
 	framekey = L"IDLEBOMB";
 	curstance = IDLEBOMB;
 
@@ -77,16 +78,18 @@ void Bullet::LateUpdate()
 void Bullet::Render(HDC hdc)
 {
 
+
+
 	HDC memDC = BmpMgr::getInstance()->FindImage(framekey);
 	if (nullptr == memDC)return;
 
 
+	//충돌박스 
+	Rectangle(hdc, colliderBox.left, colliderBox.top, colliderBox.right, colliderBox.bottom);
+
+
 	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,
 		frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
-
-
-
-
 
 }
 

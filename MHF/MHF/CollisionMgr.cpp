@@ -32,8 +32,15 @@ void CollisionMgr::CollisionRect(list<Object*>& dst, list<Object*>& src)
 			
 			if (IntersectRect(&rc, &(dstIter->GetRect()), &(srcIter->GetRect())))
 			{
-				dstIter->setDead();
-				srcIter->setDead();
+
+				//플레이어 물풍선일때,
+
+				dstIter->Collide();
+				srcIter->Collide();
+
+				//monster일때 죽여..
+				/*dstIter->setDead();
+				srcIter->setDead();*/
 
 			}
 		

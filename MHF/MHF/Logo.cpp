@@ -27,7 +27,7 @@ void Logo::LateUpdate()
 {
 	if (GetAsyncKeyState(VK_RETURN))
 	{
-		SceneMgr::GetInstance()->SceneChange(SceneMgr::START);
+		SceneMgr::GetInstance()->SceneChange(SceneMgr::LOBBY);
 		return;
 	}
 }

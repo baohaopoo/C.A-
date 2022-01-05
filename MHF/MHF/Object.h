@@ -19,7 +19,9 @@ public:
 
 public:
 	virtual void UpdateRect();
-	
+	virtual void ColliderUpdateRect();
+	virtual void Collide();
+
 public:
 	RECT& GetRect();
 	INFO& GetInfo();
@@ -29,14 +31,15 @@ public:
 
 protected:
 	void MoveFrame();
+	
 
 protected:
 	INFO info;
 	RECT rect;
-	bool isDead;
+	RECT colliderBox;
 	Frame frame;
 
-
-
+	bool isDead;
+	bool isCollision;
 };
 

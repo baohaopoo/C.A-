@@ -19,6 +19,9 @@ void Stage::Initialize()
 	BmpMgr::getInstance()->InsertBmp(L"Stage", L"../Image/UIFrm.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"Tile", L"../Image/Tile.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"OBJ", L"../Image/object.bmp");
+
+
+	stui.Initialize();
 	if (nullptr == player) {
 		player = new Player;
 		ObjList[PLAYER].push_back(player);
@@ -58,7 +61,7 @@ void Stage::Update()
 	}
 
 	TileMgr::GetInstance()->Update();
-
+	stui.Update();
 
 }
 
@@ -73,10 +76,10 @@ void Stage::LateUpdate()
 	}
 
 
-	//CollisionMgr::CollisionRect(ObjList[MONSTER], ObjList[BULLET]);
-	CollisionMgr::CollisionShpere(ObjList[MONSTER], ObjList[BULLET]);
+	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[BULLET]);
+	//CollisionMgr::CollisionShpere(ObjList[MONSTER], ObjList[BULLET]);
 	TileMgr::GetInstance()->LateUpdate();
-
+	stui.LateUpdate();
 }
 
 void Stage::Render(HDC hDC)
@@ -89,16 +92,16 @@ void Stage::Render(HDC hDC)
 	TileMgr::GetInstance()->Render(hDC);
 
 
-	HDC memDC = nullptr;
-	memDC = BmpMgr::getInstance()->FindImage(L"Stage");
+	HDC memDC = BmpMgr::getInstance()->FindImage(L"Stage");
+
 	//배경 출력 
 	if (memDC == nullptr) {
 		return;
 	}
 
+
 	// GdiTransparentBlt: 사용자가 원하는 색상을 제거하여 비트맵을 출력.
 	GdiTransparentBlt(hDC, 0, 0, WINCX, WINCY, memDC, 0, 0, WINCX, WINCY, RGB(255, 255, 255));
-	//BitBlt(hDC, 0, 0, WINCX, WINCY, memDC, 0, 0, SRCCOPY);
 
 	for (int i = 0; i < END; ++i)
 	{
@@ -107,6 +110,7 @@ void Stage::Render(HDC hDC)
 			(*iter)->Render(hDC);
 		}
 	}
+	stui.Render(hDC);
 }
 
 void Stage::Release()
