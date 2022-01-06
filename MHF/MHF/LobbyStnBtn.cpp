@@ -28,13 +28,14 @@ int LobbyStnBtn::Update()
 	GetCursorPos(&pt);
 	UpdateRect();
 	ScreenToClient(g_hWnd,&pt);
-	
-	if (PtInRect(&rect, pt))
-	{
-		if (GetAsyncKeyState(VK_LBUTTON))
-			SceneMgr::GetInstance()->SceneChange(SceneMgr::STAGE);
-	}
 
+	if (GetAsyncKeyState(VK_LBUTTON)) {
+		if (PtInRect(&rect, pt))
+		{
+
+			SceneMgr::GetInstance()->SceneChange(SceneMgr::STAGE);
+		}
+	}
 	return LIVE;
 }
 

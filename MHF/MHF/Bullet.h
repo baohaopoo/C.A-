@@ -1,9 +1,11 @@
 #pragma once
 #include"Object.h"
+#include "UpFlow.h"
+
 class Bullet : public Object
 {
 public:
-	enum STANCE { IDLEBOMB,test,END};
+	enum STANCE { IDLEBOMB, ALONEBOMB, FLOWBOMB ,END};
 public:
 	Bullet();
 	virtual ~Bullet();
@@ -28,5 +30,7 @@ private:
 	STANCE prestance;
 
 	DWORD bombTime = GetTickCount();
+
+
 };
 

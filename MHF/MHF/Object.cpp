@@ -28,10 +28,10 @@ void Object::UpdateRect()
 
 void Object::ColliderUpdateRect()
 {
-	colliderBox.left = LONG(info.fX - (info.fCX * 0.5)) + 10;
-	colliderBox.top = LONG(info.fY - (info.fCY *0.5)) + 10 ;
-	colliderBox.right = LONG(info.fX + (info.fCX * 0.5))- 10;
-	colliderBox.bottom = LONG(info.fY + (info.fCY *0.5)) - 10;
+	colliderBox.left = LONG(info.fX - (info.fCX * 0.5)) ;
+	colliderBox.top = LONG(info.fY - (info.fCY *0.5))  ;
+	colliderBox.right = LONG(info.fX + (info.fCX * 0.5));
+	colliderBox.bottom = LONG(info.fY + (info.fCY *0.5)) ;
 
 }
 

@@ -12,6 +12,7 @@ public:
 	virtual void LateUpdate();
 	virtual void Render(HDC hdc);
 	virtual void Release();
-
+private:
+	DWORD dwTime = GetTickCount();
 };
 

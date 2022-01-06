@@ -25,9 +25,6 @@
     <Filter Include="01.Object\00.Player">
       <UniqueIdentifier>{e11f89dd-b061-4e70-af46-da569e1364d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Object\01.Bullet">
-      <UniqueIdentifier>{03bca586-facc-4d66-82bc-80c98e09f849}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Object\02.Monster">
       <UniqueIdentifier>{ecd1d1d9-0eab-4cb3-8afe-40ca983f5e98}</UniqueIdentifier>
     </Filter>
@@ -67,6 +64,15 @@
     <Filter Include="05.SceneMgr\00.Scene\01.Start">
       <UniqueIdentifier>{aeba21ed-76ca-4082-be2e-87494755db89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Object\03.mapObject">
+      <UniqueIdentifier>{ae04a2f1-2821-4d89-aec4-288628fb41c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Object\04.Item">
+      <UniqueIdentifier>{0aacab89-73e8-488c-99ff-c2dcfad213c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Object\01.Bomb">
+      <UniqueIdentifier>{03bca586-facc-4d66-82bc-80c98e09f849}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -100,7 +106,7 @@
       <Filter>99.Headers</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>01.Object\01.Bullet</Filter>
+      <Filter>01.Object\01.Bomb</Filter>
     </ClInclude>
     <ClInclude Include="Enum.h">
       <Filter>99.Headers</Filter>
@@ -156,6 +162,15 @@
     <ClInclude Include="StartUI.h">
       <Filter>05.SceneMgr\00.Scene\03.Stage</Filter>
     </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>01.Object\03.mapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>01.Object\04.Item</Filter>
+    </ClInclude>
+    <ClInclude Include="UpFlow.h">
+      <Filter>01.Object\01.Bomb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -174,7 +189,7 @@
       <Filter>01.Object\00.Player</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>01.Object\01.Bullet</Filter>
+      <Filter>01.Object\01.Bomb</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>01.Object\02.Monster</Filter>
@@ -223,6 +238,15 @@
     </ClCompile>
     <ClCompile Include="StartUI.cpp">
       <Filter>05.SceneMgr\00.Scene\03.Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>01.Object\03.mapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>01.Object\04.Item</Filter>
+    </ClCompile>
+    <ClCompile Include="UpFlow.cpp">
+      <Filter>01.Object\01.Bomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

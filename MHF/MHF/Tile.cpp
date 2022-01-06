@@ -15,8 +15,13 @@ void Tile::SetTileID(TCHAR * name)
 {
 
 		tileID = name; 
-		//BmpMgr::getInstance()->FindImage(tileID);
+		BmpMgr::getInstance()->FindImage(tileID);
 	
+}
+
+TCHAR * Tile::GetTileID()
+{
+	return tileID;
 }
 
 void Tile::Initialize()
@@ -24,7 +29,6 @@ void Tile::Initialize()
 	info.fCX = (float)TILECX;
 	info.fCY = (float)TILECY;
 
-	BmpMgr::getInstance()->InsertBmp(L"test", L"../Image/camp.bmp");
 	tileID = L"Tile";
 }
 
@@ -35,23 +39,23 @@ int Tile::Update()
 
 void Tile::LateUpdate()
 {
-}
+} 
 
 void Tile::Render(HDC hdc)
 {
 	Object::UpdateRect();
 
-	/*HDC memDC = BmpMgr::getInstance()->FindImage(tileID);
+	HDC memDC = BmpMgr::getInstance()->FindImage(tileID);
 	if (memDC == nullptr)return;
 
 	BitBlt(hdc, rect.left, rect.top, TILECX, TILECY, memDC, 0, 0, SRCCOPY);
-*/
 
 
-	HDC memDC = BmpMgr::getInstance()->FindImage(L"test");
-	if (memDC == nullptr)return;
+	// GdiTransparentBlt: 사용자가 원하는 색상을 제거하여 비트맵을 출력.
+	//GdiTransparentBlt(memDC, rect.left, rect.top, TILECX, TILECY, memDC, 0, 0, WINCX, WINCY, RGB(255, 255, 255));
 
-	BitBlt(hdc, rect.left, rect.top, TILECX, TILECY, memDC, 0, 0, SRCCOPY);
+
+
 	//GdiTransparentBlt(hdc, 0, 0, WINCX, WINCY, memDC, 0, 0, WINCX, WINCY, RGB(255, 255, 255));
 
 }

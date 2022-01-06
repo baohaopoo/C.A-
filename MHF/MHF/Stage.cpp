@@ -4,7 +4,7 @@
 #include "CollisionMgr.h"
 #include "TileMgr.h"
 Stage::Stage()
-	:player(nullptr)
+	:player(nullptr),box(nullptr),isEdit(false),skate(nullptr)
 {
 }
 
@@ -20,8 +20,27 @@ void Stage::Initialize()
 	BmpMgr::getInstance()->InsertBmp(L"Tile", L"../Image/Tile.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"OBJ", L"../Image/object.bmp");
 
+	//stage에 깔 오브젝트 bmp
+	BmpMgr::getInstance()->InsertBmp(L"fixbox", L"../Image/map/fixedbox.bmp");
 
-	stui.Initialize();
+	if (isEdit== true) {
+		TileMgr::GetInstance()->LoadTile();
+	}
+
+	stui = new StartUI;
+	stui->Initialize();
+
+
+	if (nullptr == box) {
+		box = new Box;
+		ObjList[BOX].push_back(box);
+		box->Initialize();
+	}
+	if (nullptr == skate) {
+		skate = new Item;
+		ObjList[SKATE].push_back(skate);
+		skate->Initialize();
+	}
 	if (nullptr == player) {
 		player = new Player;
 		ObjList[PLAYER].push_back(player);
@@ -36,9 +55,15 @@ void Stage::Initialize()
 
 void Stage::Update()
 {
-	if (GetAsyncKeyState(VK_LBUTTON))
+	if (GetAsyncKeyState(VK_LBUTTON)) {
 		isPicking();
+	}
 
+
+	if (GetAsyncKeyState('S')) {
+		TileMgr::GetInstance()->SaveTile();
+		isEdit = true;
+	}
 
 	for (int i = 0; i < END; ++i)
 	{
@@ -61,7 +86,19 @@ void Stage::Update()
 	}
 
 	TileMgr::GetInstance()->Update();
-	stui.Update();
+
+	if (box != nullptr) {
+		box->Update();
+	}
+
+	if (stui != nullptr) {
+		if (DEAD == stui->Update())
+		{
+			delete stui;
+			stui = nullptr;
+
+		}
+	}
 
 }
 
@@ -77,9 +114,16 @@ void Stage::LateUpdate()
 
 
 	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[BULLET]);
-	//CollisionMgr::CollisionShpere(ObjList[MONSTER], ObjList[BULLET]);
+	CollisionMgr::CollisionRect(ObjList[SKATE], ObjList[PLAYER]);
+
 	TileMgr::GetInstance()->LateUpdate();
-	stui.LateUpdate();
+	if (stui != nullptr)
+		stui->LateUpdate();
+
+	if (box != nullptr) {
+		box->LateUpdate();
+	}
+
 }
 
 void Stage::Render(HDC hDC)
@@ -102,6 +146,11 @@ void Stage::Render(HDC hDC)
 
 	// GdiTransparentBlt: 사용자가 원하는 색상을 제거하여 비트맵을 출력.
 	GdiTransparentBlt(hDC, 0, 0, WINCX, WINCY, memDC, 0, 0, WINCX, WINCY, RGB(255, 255, 255));
+	
+	//박스
+	if (box != nullptr) {
+		box->Render(hDC);
+	}
 
 	for (int i = 0; i < END; ++i)
 	{
@@ -110,7 +159,11 @@ void Stage::Render(HDC hDC)
 			(*iter)->Render(hDC);
 		}
 	}
-	stui.Render(hDC);
+
+
+	if (stui != nullptr)
+		stui->Render(hDC);
+
 }
 
 void Stage::Release()
@@ -118,6 +171,8 @@ void Stage::Release()
 	
 	for (auto& objLst : ObjList[PLAYER])
 		objLst->Release();
+
+	TileMgr::GetInstance()->DestroyInstance();
 }
 
 void Stage::isPicking()
@@ -126,10 +181,10 @@ void Stage::isPicking()
 	GetCursorPos(&pt);
 	ScreenToClient(g_hWnd, &pt);
 
-	int x = pt.x / TILECX;
-	int y = pt.y / TILECY; 
+	int x = (int)pt.x / TILECX;
+	int y = (int)pt.y / TILECY; 
 
-	int index = x + TILECX* y;
-	TileMgr::GetInstance()->PickTile(index, L"OBJ");
+	int index = x + (TILEX* y);
+	TileMgr::GetInstance()->PickTile(index, L"fixbox");
 	
 }

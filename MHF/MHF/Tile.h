@@ -12,6 +12,7 @@ public:
 //	int GetTileID() { return tileID; }
 public:
 	void SetTileID(TCHAR* name);
+	TCHAR* GetTileID();
 public:
 
 	virtual void Initialize();

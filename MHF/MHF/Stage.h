@@ -3,7 +3,9 @@
 #include"Player.h"
 #include"Monster.h"
 #include"Mouse.h"
-#include "StartUI.h"
+#include"StartUI.h"
+#include"Box.h"
+#include"Item.h"
 class Stage : public Scene
 {
 public:
@@ -29,6 +31,12 @@ private:
 	DWORD dwTime = GetTickCount();
 	list<Object*> ObjList[END];
 
-	StartUI stui;
+	StartUI* stui;
+
+	Box* box;
+	Item* skate;
+
+	bool isEdit;
+
 };
 

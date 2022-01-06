@@ -17,7 +17,8 @@ void Bullet::Initialize()
 
 
 	BmpMgr::getInstance()->InsertBmp(L"IDLEBOMB", L"../Image/ab.bmp"); //bomb
-	BmpMgr::getInstance()->InsertBmp(L"test", L"../Image/bb.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"ALONEBOMB", L"../Image/bb.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"FLOWBOMB", L"../Image/flow.bmp");
 
 	framekey = L"IDLEBOMB";
 	curstance = IDLEBOMB;
@@ -47,13 +48,12 @@ int Bullet::Update()
 		return  DEAD;
 
 
-			
+		
 	UpdateRect();
 	ColliderUpdateRect();
 
 	framekey = L"IDLEBOMB";
 	curstance = IDLEBOMB;
-
 
 	return LIVE;
 
@@ -68,8 +68,9 @@ void Bullet::LateUpdate()
 
 	if (bombTime + 2300 < GetTickCount())
 	{
-		framekey = L"test";
-		curstance = test;
+		
+		framekey = L"ALONEBOMB";
+		curstance = ALONEBOMB;
 		isDead = true;
 	}
 }
@@ -77,7 +78,6 @@ void Bullet::LateUpdate()
 
 void Bullet::Render(HDC hdc)
 {
-
 
 
 	HDC memDC = BmpMgr::getInstance()->FindImage(framekey);
@@ -122,7 +122,8 @@ void Bullet::frameChange()
 			frame.Speed = 10;
 			break;
 
-		case test:
+		case ALONEBOMB:
+		
 			frame.startX = 0;
 			frame.EndX = 3;
 			frame.startY = 0;

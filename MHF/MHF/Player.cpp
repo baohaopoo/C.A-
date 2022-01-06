@@ -86,11 +86,11 @@ void Player::LateUpdate()
 	//충돌시
 	if (isCollision)
 	{
-		//약간 딜레이 되는 척..
-		if (dwTime + 2300 < GetTickCount()) {
-			frameKey = L"BOMB";
-			curstance = BOMB;
-		}
+		////약간 딜레이 되는 척..
+		//if (dwTime + 2300 < GetTickCount()) {
+		//	frameKey = L"BOMB";
+		//	curstance = BOMB;
+		//}
 
 
 
@@ -240,6 +240,14 @@ void Player::CreateBullet()
 	}
 }
 
+void Player::eatSkate()
+{
+	if (dwTime + 300 < GetTickCount()) {
+		info.fSpeed =20.f;	//기존스피드 15
+	}
+
+}
+
 
 
 void Player::SetBulletList(list<Object*>* bulletLst)
@@ -272,5 +280,10 @@ void Player::frameChange()
 		}
 		prestance = curstance;
 	}
+}
+
+void Player::Collide()
+{
+	eatSkate();
 }
 

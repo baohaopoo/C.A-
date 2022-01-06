@@ -147,11 +147,13 @@
   <ItemGroup>
     <ClInclude Include="Bmp.h" />
     <ClInclude Include="BmpMgr.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Functional.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Lobby.h" />
     <ClInclude Include="LobbyStnBtn.h" />
     <ClInclude Include="Logo.h" />
@@ -173,12 +175,15 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMgr.h" />
+    <ClInclude Include="UpFlow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bmp.cpp" />
     <ClCompile Include="BmpMgr.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Lobby.cpp" />
     <ClCompile Include="LobbyStnBtn.cpp" />
     <ClCompile Include="Logo.cpp" />
@@ -202,6 +207,7 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMgr.cpp" />
+    <ClCompile Include="UpFlow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MHF.rc" />
