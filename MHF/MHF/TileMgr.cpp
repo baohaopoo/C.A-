@@ -43,7 +43,7 @@ void TileMgr::Initialize()
 	for (int i = 0; i < TILEY; ++i) {
 		for (int j = 0; j < TILEX; ++j) {
 			x = TILECX + TILECX *j;
-			y = TILECY + TILECY * i;
+			y = 20 + TILECY + TILECY * i;
 			 
 		
 			Object* tileobj = new Tile;

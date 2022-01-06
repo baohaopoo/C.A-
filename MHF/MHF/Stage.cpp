@@ -60,6 +60,15 @@ void Stage::Update()
 	}
 
 
+	if (GetAsyncKeyState('X'))
+		CreateItem(L"Skate", 300, 400);
+
+
+	if (GetAsyncKeyState('C'))
+		CreateItem(L"Ballon", uidx(dre), uidy(dre));
+
+
+
 	if (GetAsyncKeyState('S')) {
 		TileMgr::GetInstance()->SaveTile();
 		isEdit = true;
@@ -187,4 +196,23 @@ void Stage::isPicking()
 	int index = x + (TILEX* y);
 	TileMgr::GetInstance()->PickTile(index, L"fixbox");
 	
+}
+
+void Stage::CreateItem(TCHAR * key, float x, float y)
+{
+	if (dwTime + 260<GetTickCount())
+	{
+		skate = new Item();
+		//skate->setPos(uidx(dre),uidy(dre));
+
+
+		skate->Initialize();
+		skate->setImageKey(key);
+		skate->setPos(x, y);
+
+		ObjList[SKATE].push_back(skate);
+
+		dwTime = GetTickCount();
+
+	}
 }

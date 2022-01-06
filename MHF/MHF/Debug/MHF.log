@@ -1,38 +1,6 @@
-﻿  Bmp.cpp
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  UpFlow.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\upflow.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  TileMgr.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\tilemgr.cpp(45): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\tilemgr.cpp(46): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\tilemgr.cpp(86): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
-  Tile.cpp
-  StartUI.cpp
-  StartBtn.cpp
-  Start.cpp
-  Stage.cpp
-  SceneMgr.cpp
-  Player.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\player.cpp(108): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Object.cpp
-  Mouse.cpp
-  Monster.cpp
-  MainGame.cpp
-  MHF.cpp
-  Logo.cpp
-  LobbyStnBtn.cpp
-  Lobby.cpp
-  Item.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\item.cpp(47): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  CollisionMgr.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\collisionmgr.cpp(21): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Bullet.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\bullet.cpp(92): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  Box.cpp
-c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\box.cpp(45): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
+﻿  Item.cpp
+c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\item.cpp(20): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\item.cpp(21): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\source\repos\3.crazy arcade git\c.a-\mhf\mhf\item.cpp(64): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   MHF.vcxproj -> C:\Users\baohao\source\repos\3.crazy arcade git\C.A-\MHF\Debug\MHF.exe
   MHF.vcxproj -> C:\Users\baohao\source\repos\3.crazy arcade git\C.A-\MHF\Debug\MHF.pdb (Full PDB)

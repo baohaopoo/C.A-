@@ -6,6 +6,7 @@
 #include"StartUI.h"
 #include"Box.h"
 #include"Item.h"
+#include<random>
 class Stage : public Scene
 {
 public:
@@ -22,7 +23,7 @@ public:
 
 public:
 	void isPicking();
-
+	void CreateItem(TCHAR* key, float x, float y);
 private:
 	Object* player;
 	Object* monster;
@@ -38,5 +39,8 @@ private:
 
 	bool isEdit;
 
+	default_random_engine dre;
+	uniform_int_distribution<> uidx{ 100,300 };
+	uniform_int_distribution<> uidy{ 200,600 };
 };
 
