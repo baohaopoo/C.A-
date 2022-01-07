@@ -39,7 +39,7 @@ void UpFlow::LateUpdate()
 
 void UpFlow::Render(HDC hdc)
 {
-	HDC memDC = BmpMgr::getInstance()->FindImage(L"upflow.bmp");
+	HDC memDC = BmpMgr::getInstance()->FindImage(L"UP.bmp");
 	if (nullptr == memDC)return;
 
 

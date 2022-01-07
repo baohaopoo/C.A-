@@ -33,11 +33,27 @@ void CollisionMgr::CollisionRect(list<Object*>& dst, list<Object*>& src)
 			if (IntersectRect(&rc, &(dstIter->GetRect()), &(srcIter->GetRect())))
 			{
 
-				//플레이어 물풍선일때,
+				//플레이어 아이템일때,
+				if (srcIter->getID() == SKATE) {
+					dstIter->Collide(SKATE);
+					srcIter->Collide(SKATE);
+				}
+				if (srcIter->getID() == BULLET) {
+					dstIter->Collide(BULLET);
+					srcIter->Collide(BULLET);
+				}
 
-				dstIter->Collide();
-				srcIter->Collide();
 
+				//타일일때
+				if (srcIter->getID() == TILE) {
+					dstIter->Collide(TILE);
+					srcIter->Collide(TILE);
+				}
+				//box일떄
+				if (srcIter->getID() == BOX) {
+					dstIter->Collide(BOX);
+					srcIter->Collide(BOX);
+				}
 				//monster일때 죽여..
 				/*dstIter->setDead();
 				srcIter->setDead();*/

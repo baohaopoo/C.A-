@@ -56,6 +56,16 @@ void Object::setDead()
 	isDead = true;
 }
 
+bool Object::GetDead()
+{
+	return isDead;
+}
+
+OBJID Object::getID()
+{
+	return id;
+}
+
 void Object::MoveFrame()
 {
 	if (frame.OldTime + frame.Speed < GetTickCount()) {
@@ -68,7 +78,8 @@ void Object::MoveFrame()
 
 }
 
-void Object::Collide()
+void Object::Collide(OBJID objid)
 {
+
 	isCollision = true;
 }

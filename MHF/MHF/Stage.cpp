@@ -3,9 +3,12 @@
 #include "BmpMgr.h"
 #include "CollisionMgr.h"
 #include "TileMgr.h"
+#include "ObjMgr.h"
+#include "Factory.h"
 Stage::Stage()
 	:player(nullptr),box(nullptr),isEdit(false),skate(nullptr)
 {
+	
 }
 
 
@@ -17,11 +20,15 @@ void Stage::Initialize()
 {	
 
 	BmpMgr::getInstance()->InsertBmp(L"Stage", L"../Image/UIFrm.bmp");
-	BmpMgr::getInstance()->InsertBmp(L"Tile", L"../Image/Tile.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"Tile", L"../Image/map/ice.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"OBJ", L"../Image/object.bmp");
 
 	//stage에 깔 오브젝트 bmp
-	BmpMgr::getInstance()->InsertBmp(L"fixbox", L"../Image/map/fixedbox.bmp");
+	//BmpMgr::getInstance()->InsertBmp(L"fixbox", L"../Image/map/iceobject.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"fixbox", L"../Image/map/icetile.bmp");
+
+
+	//
 
 	if (isEdit== true) {
 		TileMgr::GetInstance()->LoadTile();
@@ -51,21 +58,24 @@ void Stage::Initialize()
 
 	TileMgr::GetInstance()->Initialize();
 
+
 }
 
 void Stage::Update()
 {
+	
 	if (GetAsyncKeyState(VK_LBUTTON)) {
 		isPicking();
 	}
 
 
 	if (GetAsyncKeyState('X'))
-		CreateItem(L"Skate", 300, 400);
+		CreateItem(L"Ballon", 200, 300);
 
+	//if (GetAsyncKeyState('C'))
 
-	if (GetAsyncKeyState('C'))
-		CreateItem(L"Ballon", uidx(dre), uidy(dre));
+	CreateItem(L"Skate", 100, 400);
+
 
 
 
@@ -123,7 +133,9 @@ void Stage::LateUpdate()
 
 
 	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[BULLET]);
-	CollisionMgr::CollisionRect(ObjList[SKATE], ObjList[PLAYER]);
+	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[SKATE]);
+	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[TILE]);
+	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[BOX]);
 
 	TileMgr::GetInstance()->LateUpdate();
 	if (stui != nullptr)
@@ -173,6 +185,7 @@ void Stage::Render(HDC hDC)
 	if (stui != nullptr)
 		stui->Render(hDC);
 
+	
 }
 
 void Stage::Release()
@@ -194,7 +207,7 @@ void Stage::isPicking()
 	int y = (int)pt.y / TILECY; 
 
 	int index = x + (TILEX* y);
-	TileMgr::GetInstance()->PickTile(index, L"fixbox");
+	TileMgr::GetInstance()->PickTile(index,L"fixbox");
 	
 }
 

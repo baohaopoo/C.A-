@@ -13,6 +13,7 @@ Item::~Item()
 
 void Item::Initialize()
 {
+	id = SKATE;
 	BmpMgr::getInstance()->InsertBmp(L"Skate", L"../Image/Item/skate.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"Ballon", L"../Image/Item/ballon.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"Jusa", L"../Image/Item/jusa.bmp");
@@ -69,7 +70,7 @@ void Item::Release()
 {
 }
 
-void Item::Collide()
+void Item::Collide(OBJID objid)
 {
 	isDead = true;
 }

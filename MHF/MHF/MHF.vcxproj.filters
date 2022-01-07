@@ -73,6 +73,12 @@
     <Filter Include="01.Object\01.Bomb">
       <UniqueIdentifier>{03bca586-facc-4d66-82bc-80c98e09f849}</UniqueIdentifier>
     </Filter>
+    <Filter Include="07.Factory">
+      <UniqueIdentifier>{c568b3bd-863f-4009-b120-f5af93a3b0b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08.ObjMgr">
+      <UniqueIdentifier>{10dc7cb8-9d92-4552-9480-aa89f6107be7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -95,9 +101,6 @@
     </ClInclude>
     <ClInclude Include="Define.h">
       <Filter>99.Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>01.Object</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>01.Object\00.Player</Filter>
@@ -170,6 +173,15 @@
     </ClInclude>
     <ClInclude Include="UpFlow.h">
       <Filter>01.Object\01.Bomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>07.Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMgr.h">
+      <Filter>08.ObjMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>01.Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +259,9 @@
     </ClCompile>
     <ClCompile Include="UpFlow.cpp">
       <Filter>01.Object\01.Bomb</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMgr.cpp">
+      <Filter>08.ObjMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

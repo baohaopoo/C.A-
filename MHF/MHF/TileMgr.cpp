@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "Tile.h"
 #include "Functional.h"
+#include "ObjMgr.h"
 
 TileMgr* TileMgr::instance = nullptr;
 
@@ -46,9 +47,17 @@ void TileMgr::Initialize()
 			y = 20 + TILECY + TILECY * i;
 			 
 		
+			
 			Object* tileobj = new Tile;
 			tileobj->Initialize();
 			tileobj->setPos(x, y);
+
+			if (dynamic_cast<Tile*>(tileobj)->GetTileID() == L"fixbox") {
+				ObjMgr::Get_Instance()->Add_Object(TILE, tileobj);
+				dynamic_cast<Tile*>(tileobj)->setid(TILE);
+				
+			}
+
 			TileVec.push_back(tileobj);
 		
 
@@ -102,15 +111,17 @@ void TileMgr::SaveTile()
 
 	INFO	tInfo = {};
 	TCHAR*		iDrawID ;
+	
 	DWORD	dwByte = 0;
 
 	for (auto& pTile : TileVec)
 	{
 		tInfo = pTile->GetInfo();
 		iDrawID = dynamic_cast<Tile*>(pTile)->GetTileID();
-
+		
 		WriteFile(hFile, &tInfo, sizeof(INFO), &dwByte, 0);
 		WriteFile(hFile, &iDrawID, sizeof(int), &dwByte, 0);
+	
 	}
 
 	CloseHandle(hFile);
@@ -132,11 +143,12 @@ void TileMgr::LoadTile()
 	INFO	tInfo = {};
 	TCHAR*	iDrawID;
 	DWORD	dwByte = 0;
-
+	int drawid = 0;
 	while (true)
 	{
 		ReadFile(hFile, &tInfo, sizeof(INFO), &dwByte, 0);
 		ReadFile(hFile, &iDrawID, sizeof(int), &dwByte, 0);
+	
 
 		if (0 == dwByte)
 			break;

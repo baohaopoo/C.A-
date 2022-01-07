@@ -26,6 +26,11 @@ private:
 	int direction;
 
 	TCHAR* framekey;
+	TCHAR* framekey2;
+	TCHAR* framekey3;
+	TCHAR* framekey4;
+	TCHAR* framekey5;
+
 	STANCE curstance;
 	STANCE prestance;
 

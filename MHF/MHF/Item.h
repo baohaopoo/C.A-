@@ -16,7 +16,7 @@ public:
 	virtual void Release();
 
 public:
-	virtual void Collide();
+	virtual void Collide(OBJID objid);
 	void setImageKey(TCHAR* key);
 
 private:

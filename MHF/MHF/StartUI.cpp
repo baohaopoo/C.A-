@@ -52,6 +52,7 @@ void StartUI::Render(HDC hdc)
 	}
 	//GdiTransparentBlt(hdc, rect.left,rect.top, 500,300, suDC, rect.left, rect.top, 500, 300, RGB(255, 202, 24));
 	BitBlt(hdc, 100, 180, 500, 300, suDC, 0, 0, SRCCOPY);
+	//GdiTransparentBlt(hdc,100, 180, info.fCX, info.fCY, hdc, 0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
 
 }
 

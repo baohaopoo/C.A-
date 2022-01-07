@@ -2,11 +2,11 @@
 #include "Object.h"
 #include "Define.h"
 #include "Bullet.h"
-
+#include "UpFlow.h"
 class Player : public Object
 {
 public:
-	enum STANCE{IDLE, WALK,BOMB,END};
+	enum STANCE{IDLE, WALK,BOMB,PANG, END};
 public:
 	Player();
 	virtual ~Player();
@@ -21,7 +21,7 @@ public:
 public:
 	void SetBulletList(list<Object*>* bulletLst);
 	void frameChange();
-	virtual void Collide();
+	virtual void Collide(OBJID objid);
 
 private:
 	void KeyInput();
@@ -31,6 +31,7 @@ private:
 
 private:
 	Bullet* bullet;
+
 	list<Object*>* bulletBucket;
 	DWORD dwTime = GetTickCount();
 
@@ -40,8 +41,11 @@ private:
 	
 private:
 	TCHAR* frameKey;
+	TCHAR* frameKey2;
+
 	STANCE curstance;
 	STANCE prestance;
 
+	int pangcnt = 0;
 };
 

@@ -14,6 +14,6 @@ public:
 	virtual void Render(HDC hdc);
 	virtual void Release();
 
-	virtual void Coliide();
+	virtual void Coliide(OBJID objid);
 };
 

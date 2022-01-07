@@ -13,13 +13,14 @@ Box::~Box()
 
 void Box::Initialize()
 {
-	BmpMgr::getInstance()->InsertBmp(L"Box", L"../Image/map/box.bmp");
+	id = BOX;
+	BmpMgr::getInstance()->InsertBmp(L"Box", L"../Image/map/iceobj.bmp");
 
-	info.fX = 400.f;
-	info.fY = 400.f;
+	info.fX = 100.f;
+	info.fY = 520.f;
 
-	info.fCX = 40.f;
-	info.fCY = 47.f;
+	info.fCX = 440.f;
+	info.fCY = 120.f;
 
 }
 
@@ -39,21 +40,16 @@ void Box::Render(HDC hdc)
 	HDC memDC = BmpMgr::getInstance()->FindImage(L"Box");
 	if (nullptr == memDC)return;
 
-	//Rectangle(hdc, rect.left, rect.top, rect.right, rect.bottom);
-	//GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, (int)info.fX, (int)info.fY,info.fCX, info.fCY, RGB(255, 255, 255));
-	Rectangle(hdc, colliderBox.left, colliderBox.top, colliderBox.right, colliderBox.bottom);
-	BitBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, 0, 0, SRCCOPY);
 
 
-
-
+	GdiTransparentBlt(hdc, info.fX, info.fCY, info.fCX, info.fCY, memDC, 0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
 }
 
 void Box::Release()
 {
 }
 
-void Box::Coliide()
+void Box::Coliide(OBJID objid)
 {
 	//info.fX
 }

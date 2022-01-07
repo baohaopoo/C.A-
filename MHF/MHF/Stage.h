@@ -6,6 +6,7 @@
 #include"StartUI.h"
 #include"Box.h"
 #include"Item.h"
+#include "UpFlow.h"
 #include<random>
 class Stage : public Scene
 {

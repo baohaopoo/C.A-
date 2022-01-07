@@ -13,6 +13,7 @@ public:
 public:
 	void SetTileID(TCHAR* name);
 	TCHAR* GetTileID();
+	void setid(OBJID objid) { id = objid; };
 public:
 
 	virtual void Initialize();
@@ -21,7 +22,14 @@ public:
 	virtual void Render(HDC hdc);
 	virtual void Release();
 
+
+public:
+	int GetDrawID() { return drawID; }
+	void SetDrawID(int iDrawID) { drawID = iDrawID; }
+
 private:
 	TCHAR* tileID;
+	int drawID;
+
 };
 

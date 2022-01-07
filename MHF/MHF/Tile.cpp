@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "Tile.h"
 #include"BmpMgr.h"
+#include"Enum.h"
 Tile::Tile()
-	:tileID(0)
+	:tileID(0),drawID(1)
 {
 }
 
@@ -14,7 +15,7 @@ Tile::~Tile()
 void Tile::SetTileID(TCHAR * name)
 {
 
-		tileID = name; 
+		tileID= name; 
 		BmpMgr::getInstance()->FindImage(tileID);
 	
 }
@@ -26,6 +27,7 @@ TCHAR * Tile::GetTileID()
 
 void Tile::Initialize()
 {
+	id= TILE;
 	info.fCX = (float)TILECX;
 	info.fCY = (float)TILECY;
 
@@ -47,16 +49,8 @@ void Tile::Render(HDC hdc)
 
 	HDC memDC = BmpMgr::getInstance()->FindImage(tileID);
 	if (memDC == nullptr)return;
+	GdiTransparentBlt(hdc, rect.left, rect.top, TILECX,TILECY, memDC, 0, 0, drawID*TILECX, TILECY, RGB(255, 255, 255));
 
-	BitBlt(hdc, rect.left, rect.top, TILECX, TILECY, memDC, 0, 0, SRCCOPY);
-
-
-	// GdiTransparentBlt: 사용자가 원하는 색상을 제거하여 비트맵을 출력.
-	//GdiTransparentBlt(memDC, rect.left, rect.top, TILECX, TILECY, memDC, 0, 0, WINCX, WINCY, RGB(255, 255, 255));
-
-
-
-	//GdiTransparentBlt(hdc, 0, 0, WINCX, WINCY, memDC, 0, 0, WINCX, WINCY, RGB(255, 255, 255));
 
 }
 

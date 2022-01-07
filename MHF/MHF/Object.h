@@ -20,7 +20,7 @@ public:
 public:
 	virtual void UpdateRect();
 	virtual void ColliderUpdateRect();
-	virtual void Collide();
+	virtual void Collide(OBJID objid);
 
 public:
 	RECT& GetRect();
@@ -28,7 +28,8 @@ public:
 
 	void setPos(float x, float y);
 	void setDead();
-
+	bool GetDead();
+	OBJID getID();
 protected:
 	void MoveFrame();
 	
@@ -41,5 +42,6 @@ protected:
 
 	bool isDead;
 	bool isCollision;
+	OBJID id;
 };
 
