@@ -15,6 +15,7 @@ Lobby::~Lobby()
 
 void Lobby::Initialize()
 {
+	
 	BmpMgr::getInstance()->InsertBmp(L"Lobby", L"../Image/lobby.bmp");
 	lsBtn.Initialize();
 }

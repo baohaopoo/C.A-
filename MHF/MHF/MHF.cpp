@@ -56,7 +56,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	while (true) {
 
 
-
 		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
 
 

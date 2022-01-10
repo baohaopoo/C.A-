@@ -27,5 +27,7 @@ private:
 	TCHAR* imageKey;
 	int cnt;	//이거는 나름의 애니메이션 장치.
 
+	DWORD dwTime = GetTickCount();
+	bool isCollision = false;
 };
 

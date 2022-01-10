@@ -13,6 +13,7 @@ public:
 public:
 	static void CollisionRect(list<Object*>& dst, list<Object*>& src);
 	static void CollisionShpere(list<Object*>& dst, list<Object*>&src);
-
+	static void CollisionObject(list<Object*>& dst, list<Object*>&src);
+	static bool Check_Rect(Object* pDest, Object* pSrc, float* _pX, float* _pY);
 };
 

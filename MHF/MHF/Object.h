@@ -27,9 +27,16 @@ public:
 	INFO& GetInfo();
 
 	void setPos(float x, float y);
+	void setPosY(float y) { info.fY = y; };
+	void setPosX(float x) { info.fX = x; };
+	void setSpeed(float s) { info.fSpeed = s; };
+
+	void setSize(float x, float y) { info.fCX = x; info.fCY = y; };
+	void setImage(TCHAR* _name) { info.name = _name; };
 	void setDead();
 	bool GetDead();
 	OBJID getID();
+	void setID(OBJID obj) { id = obj; };
 protected:
 	void MoveFrame();
 	

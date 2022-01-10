@@ -7,7 +7,7 @@ public:
 	static SceneMgr* GetInstance();
 	void DestroyInstance();
 public:
-	enum SCENE { LOGO,START,LOBBY, STAGE, END };
+	enum SCENE { LOGO,START,LOBBY, STAGE,MONSTAGE, END };
 
 public:
 	SceneMgr();

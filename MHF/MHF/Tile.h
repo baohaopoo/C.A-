@@ -26,10 +26,14 @@ public:
 public:
 	int GetDrawID() { return drawID; }
 	void SetDrawID(int iDrawID) { drawID = iDrawID; }
+	void SetSize(float x, float y);
 
 private:
 	TCHAR* tileID;
 	int drawID;
+
+	int cnt;
+
 
 };
 

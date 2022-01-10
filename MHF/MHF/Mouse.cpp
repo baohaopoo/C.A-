@@ -15,10 +15,10 @@ Mouse::~Mouse()
 
 void Mouse::Initialize()
 {
-	info.fCX = 10.f;
-	info.fCY = 10.f;
+	info.fCX = 37.f;
+	info.fCY = 37.f;
 
-	BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/IdleMouse.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"Mouse", L"../Image/mouse.bmp");
 }
 
 int Mouse::Update()
@@ -43,7 +43,12 @@ void Mouse::LateUpdate()
 
 void Mouse::Render(HDC hdc)
 {
-	Ellipse(hdc, rect.left, rect.top, rect.right, rect.bottom);
+	HDC memDC = BmpMgr::getInstance()->FindImage(L"Mouse");
+	if (nullptr ==    memDC)return;
+
+
+
+	GdiTransparentBlt(hdc, info.fX, info.fCY, info.fCX, info.fCY, memDC, 0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
 }
 
 void Mouse::Release()

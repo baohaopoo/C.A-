@@ -43,8 +43,10 @@ void TileMgr::Initialize()
 
 	for (int i = 0; i < TILEY; ++i) {
 		for (int j = 0; j < TILEX; ++j) {
+
+		
 			x = TILECX + TILECX *j;
-			y = 20 + TILECY + TILECY * i;
+			y = 20+TILECY + TILECY * i;
 			 
 		
 			
@@ -69,6 +71,8 @@ void TileMgr::Update()
 {
 	for (auto& ptile : TileVec)
 		ptile->Update();
+
+
 }
 
 void TileMgr::LateUpdate()
@@ -79,8 +83,24 @@ void TileMgr::LateUpdate()
 
 void TileMgr::Render(HDC hdc)
 {
+
+	//TCHAR str2[124];
+
+	//for (auto& ptile : TileVec)
+	//	wsprintf(str2, TEXT("%d %d"), ptile->GetInfo().fX, ptile->GetInfo().fY);
+
 	for (auto& ptile : TileVec)
 		ptile->Render(hdc);
+
+	//for (auto& ptile : TileVec)
+	//{
+	//
+	//	TextOut(hdc, ptile->GetInfo().fX, ptile->GetInfo().fY, str2, lstrlen(str2));
+
+	//}
+
+
+
 }
 
 void TileMgr::Release()
@@ -90,11 +110,19 @@ void TileMgr::Release()
 	TileVec.shrink_to_fit();
 }
 
-void TileMgr::PickTile(int index, TCHAR* TileName)
+void TileMgr::PickTile(int index, int TileName)
 {
 	if (0 > index || index >= TileVec.size()) return;
 
-	dynamic_cast<Tile*>(TileVec[index])->SetTileID(TileName);
+	
+
+	//if (GetAsyncKeyState(VK_RBUTTON)) {
+	//	dynamic_cast<Tile*>(TileVec[index])->SetDrawID(2);
+
+	//}
+	//if (dynamic_cast<Tile*>(TileVec[index])->GetDrawID() == L"tree") {
+	//	//dynamic_cast<Tile*>(TileVec[index])->SetSize(40, 70);
+	//}
 
 }
 
@@ -110,14 +138,14 @@ void TileMgr::SaveTile()
 	}
 
 	INFO	tInfo = {};
-	TCHAR*		iDrawID ;
+	int		iDrawID = NULL;
 	
 	DWORD	dwByte = 0;
 
 	for (auto& pTile : TileVec)
 	{
 		tInfo = pTile->GetInfo();
-		iDrawID = dynamic_cast<Tile*>(pTile)->GetTileID();
+		iDrawID = dynamic_cast<Tile*>(pTile)->GetDrawID();
 		
 		WriteFile(hFile, &tInfo, sizeof(INFO), &dwByte, 0);
 		WriteFile(hFile, &iDrawID, sizeof(int), &dwByte, 0);
@@ -141,9 +169,9 @@ void TileMgr::LoadTile()
 	}
 
 	INFO	tInfo = {};
-	TCHAR*	iDrawID;
+	int	iDrawID = 0;
 	DWORD	dwByte = 0;
-	int drawid = 0;
+
 	while (true)
 	{
 		ReadFile(hFile, &tInfo, sizeof(INFO), &dwByte, 0);
@@ -158,8 +186,12 @@ void TileMgr::LoadTile()
 		pTile->Initialize();
 		pTile->setPos(tInfo.fX, tInfo.fY);
 
+		dynamic_cast<Tile*>(pTile)->SetDrawID(iDrawID);
 		TileVec.push_back(pTile);
 	}
 
 	CloseHandle(hFile);
 }
+
+
+

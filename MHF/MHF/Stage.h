@@ -27,6 +27,7 @@ public:
 	void CreateItem(TCHAR* key, float x, float y);
 private:
 	Object* player;
+	Object* computer;
 	Object* monster;
 	Object* mouse;
 
@@ -35,7 +36,7 @@ private:
 
 	StartUI* stui;
 
-	Box* box;
+
 	Item* skate;
 
 	bool isEdit;

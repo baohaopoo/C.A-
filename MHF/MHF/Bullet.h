@@ -16,7 +16,7 @@ public:
 	virtual void LateUpdate();
 	virtual void Render(HDC hdc);
 	virtual void Release();
-	
+	virtual void Collide(OBJID objid);
 public:
 	void setDir(int dir);
 	void setPos(float x, float y);

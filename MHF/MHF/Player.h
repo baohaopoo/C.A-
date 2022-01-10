@@ -2,11 +2,13 @@
 #include "Object.h"
 #include "Define.h"
 #include "Bullet.h"
+#include "PlayerCollider.h"
 #include "UpFlow.h"
 class Player : public Object
 {
 public:
 	enum STANCE{IDLE, WALK,BOMB,PANG, END};
+
 public:
 	Player();
 	virtual ~Player();
@@ -27,11 +29,12 @@ private:
 	void KeyInput();
 	void CreateBullet();
 	void eatSkate();
+
 	
 
 private:
 	Bullet* bullet;
-
+	Object* playerc;
 	list<Object*>* bulletBucket;
 	DWORD dwTime = GetTickCount();
 
@@ -45,7 +48,8 @@ private:
 
 	STANCE curstance;
 	STANCE prestance;
-
+private:
+	bool isEglue = false;
 	int pangcnt = 0;
 };
 

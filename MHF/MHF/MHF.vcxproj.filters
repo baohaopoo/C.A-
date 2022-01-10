@@ -79,6 +79,12 @@
     <Filter Include="08.ObjMgr">
       <UniqueIdentifier>{10dc7cb8-9d92-4552-9480-aa89f6107be7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01.Object\00.Player\PlayerCollider">
+      <UniqueIdentifier>{0dbc022d-47ea-498c-bfc2-9f8cf9866790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.SceneMgr\00.Scene\04.MonStage">
+      <UniqueIdentifier>{ad62f67d-95ae-44ec-9e06-c2eaaf00a536}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -183,6 +189,15 @@
     <ClInclude Include="Object.h">
       <Filter>01.Object</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerCollider.h">
+      <Filter>01.Object\00.Player\PlayerCollider</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMBtn.h">
+      <Filter>05.SceneMgr\00.Scene\01.Start</Filter>
+    </ClInclude>
+    <ClInclude Include="MonStage.h">
+      <Filter>05.SceneMgr\00.Scene\04.MonStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -262,6 +277,15 @@
     </ClCompile>
     <ClCompile Include="ObjMgr.cpp">
       <Filter>08.ObjMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCollider.cpp">
+      <Filter>01.Object\00.Player\PlayerCollider</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMBtn.cpp">
+      <Filter>05.SceneMgr\00.Scene\01.Start</Filter>
+    </ClCompile>
+    <ClCompile Include="MonStage.cpp">
+      <Filter>05.SceneMgr\00.Scene\04.MonStage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

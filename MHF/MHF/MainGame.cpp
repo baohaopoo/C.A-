@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "MainGame.h"
 #include "CollisionMgr.h"
-#include"BmpMgr.h"
-#include"SceneMgr.h"
+#include "BmpMgr.h"
+#include "SceneMgr.h"
 MainGame::MainGame()
 {
 	m_DC = GetDC(g_hWnd);
@@ -63,6 +63,21 @@ void MainGame::Render()
 	BitBlt(BackBuffer, 0, 0, WINCX, WINCY, MemDC, 0, 0, SRCCOPY);
 
 	SceneMgr::GetInstance()->Render(BackBuffer);
+
+
+	TCHAR		szBuff[32] = L"";
+	++m_iFPS;
+
+	if (m_dwTime + 1000 < GetTickCount())
+	{
+		swprintf_s(m_szFPS, L"FPS : %d", m_iFPS);
+		SetWindowText(g_hWnd, m_szFPS);
+
+		m_iFPS = 0;
+		m_dwTime = GetTickCount();
+	}
+
+
 
 	BitBlt(m_DC, 0, 0, WINCX, WINCY, BackBuffer, 0, 0, SRCCOPY);
 

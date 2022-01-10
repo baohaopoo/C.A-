@@ -6,6 +6,8 @@ typedef struct OBJINFO {
 	float fCY;
 
 	float fSpeed;
+
+	TCHAR* name;
 }INFO;
 
 

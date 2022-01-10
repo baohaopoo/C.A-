@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "StartBtn.h"
+#include "StartMBtn.h"
 class Start: public Scene
 {
 public:
@@ -16,5 +17,6 @@ public:
 
 private:
 	StartBtn stBtn;
+	StartMBtn stBtnM;
 };
 

@@ -19,13 +19,15 @@ public:
 	void Release();
 
 public:
-	void PickTile(int index, TCHAR* TileName);
+	void PickTile(int index, int TileName);
 	void SaveTile();
 	void LoadTile();
+
 
 private:
 
 	static TileMgr* instance;
 	vector<Object*> TileVec;
+	
 };
 

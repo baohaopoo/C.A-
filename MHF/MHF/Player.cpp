@@ -3,6 +3,8 @@
 #include "Define.h"
 #include "BmpMgr.h"
 #include "UpFlow.h"
+#include "ObjMgr.h"
+#include "Factory.h"
 Player::Player()
 {
 }
@@ -24,9 +26,12 @@ void Player::Initialize()
 
 	//info.fCX = 65.f;	//right 용
 	//info.fCY = 72.f;
+	info.fSpeed = 15.f;
 
-	info.fSpeed = 15.f;  
-	BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/ddd.bmp");
+
+	//ObjMgr::Get_Instance()->Add_Object(PLAYERC,Factory<PlayerCollider>::CreateObj(info.fX, info.fY));
+
+	BmpMgr::getInstance()->InsertBmp(L"IDLE", L"../Image/ddd.bmp"); //64x74
 	BmpMgr::getInstance()->InsertBmp(L"WALKDOWN", L"../Image/WalkDown/wu2.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/wu.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/wr.bmp");
@@ -34,10 +39,25 @@ void Player::Initialize()
 	BmpMgr::getInstance()->InsertBmp(L"BOMB", L"../Image/dead.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"DEAD", L"../Image/pang.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"SAVE", L"../Image/happy.bmp");
+
+
+
+
+
+	BmpMgr::getInstance()->InsertBmp(L"WALKDOWN", L"../Image/WalkDown/wu2.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/wu.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/wr.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/wl.bmp");
+
+	//computer 
+	BmpMgr::getInstance()->InsertBmp(L"COMUP", L"../Image/WalkUp/computerwu.bmp");
+
+
+
 	//IDLE 키보드 떼는 순간 .
 	//frameKey = L"WALKDOWN";
 
-	frameKey = L"IDLE";
+	frameKey = L"WALKDOWN";
 	curstance = IDLE;
 	prestance = curstance; 
 
@@ -49,11 +69,19 @@ void Player::Initialize()
 	//frame.startY = 0;
 
 
+	//ObjMgr::Get_Instance()->Add_Object(PLAYERC, Factory<PlayerCollider>::CreateObj(info.fX,info.fY));
+	playerc = new PlayerCollider();
+
+	playerc->Initialize();
+	playerc->setPos(info.fX, info.fY );
+
 }
 
   
 int Player::Update()
 {
+	
+
 	if (true == isDead) {
 
 
@@ -62,6 +90,9 @@ int Player::Update()
 
 
 	KeyInput();
+
+
+	playerc->setPos(info.fX, info.fY);
 
 	UpdateRect();
 	ColliderUpdateRect();
@@ -73,33 +104,23 @@ int Player::Update()
 
 void Player::LateUpdate()
 {
-	//barrel.x = info.fX + 50 * cosf(angle*(PI / 180));
-	//barrel.y = info.fY - 50 * sinf(angle*(PI / 180));
-
-	//MoveFrame();
-	//if (down < 3) {
-	//	frame.startX++;
-
-	//}
-	//else if (down > 3) down = 0;
 	frameChange();
 
+
+
+	if (isEglue) {
+	/*	info.fSpeed = 0;
+		isEglue = false;*/
+	}
 
 	//충돌시
 	if (isCollision)
 	{
 		//약간 딜레이 되는 척..
 		if (dwTime + 2300 < GetTickCount()) {
-			frameKey = L"BOMB";
-			curstance = BOMB;
-
-
-			//if (dwTime + 6300 < GetTickCount()) {
+		/*	frameKey = L"BOMB";
+			curstance = BOMB;*/
 				frame.startY++;
-			/*}*/
-		/*		if (pangcnt == 3) {
-					frame.startY = 4;
-				}*/
 				if (frame.startY > 3) {
 		
 					frame.startY = 0;
@@ -121,7 +142,8 @@ void Player::LateUpdate()
 
 
 
-	}
+	}	
+	playerc->LateUpdate();
 }
 
 void Player::Render(HDC hdc)
@@ -129,12 +151,19 @@ void Player::Render(HDC hdc)
 	HDC memDC = BmpMgr::getInstance()->FindImage(frameKey);
 	if (nullptr == memDC)return;
 
+	
 	//충돌박스 
-	//Rectangle(hdc, colliderBox.left, colliderBox.top, colliderBox.right, colliderBox.bottom);
+	//Rectangle(hdc, colliderBox.left+10, colliderBox.top+30, colliderBox.right-10, colliderBox.bottom-30);
 
-	//GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC,0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
-	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,
-		frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
+	//충돌박스 
+	//Rectangle(hdc, rect.left , rect.top , rect.right , rect.bottom );
+
+
+
+	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC,0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
+	//GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
+
+		playerc->Render(hdc);
 
 
 
@@ -148,75 +177,147 @@ void Player::Release()
 
 void Player::KeyInput()
 {
-	//누르고 있을때, 
-	
-	if (GetAsyncKeyState(VK_LEFT)&0x8000) {
-		frameKey = L"WALKLEFT";
+	//계속 누르고 있을때, 
+	if (id == PLAYER) {
+		if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
+			frameKey = L"WALKLEFT";
 
-		frame.startY++;
-		if (frame.startY > 3)
-			frame.startY = 0;
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
 
-		if (!(50 >= info.fX))
-			info.fX -= info.fSpeed;
-		else
-			info.fX = 50;
+			if (!(50 >= info.fX))
+				info.fX -= info.fSpeed;
+			else
+				info.fX = 50;
+		}
+
+		if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
+			frameKey = L"WALKRIGHT";
+
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
+
+			if (!(WINCX - 200 <= info.fX))
+				info.fX += info.fSpeed;
+			else
+				info.fX = WINCX - 200;
+		}
+
+		if (GetAsyncKeyState(VK_UP) & 0x8000) {
+			frameKey = L"WALKUP";
+
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
+
+			if (!(70 >= info.fY))
+				info.fY -= info.fSpeed;
+			else
+				info.fY = 70;
+		}
+
+		if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
+			frameKey = L"WALKDOWN";
+
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
+
+			if (!(WINCY - 70 <= info.fY))
+				info.fY += info.fSpeed;
+			else
+				info.fY = WINCY - 70;
+		}
+
+
+
+		if (GetAsyncKeyState(VK_CONTROL)) {
+			frameKey = L"SAVE";
+			//curstance = PANG;
+			frame.startY++;
+			if (frame.startY > 1)
+				frame.startY = 1;
+
+
+		}
+
+
+		if (GetAsyncKeyState(VK_SPACE)) {
+			CreateBullet();
+		}
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
-		frameKey = L"WALKRIGHT";
+	if (id == COMPUTER) {
+		if (GetAsyncKeyState('A') & 0x8000) {
+			frameKey = L"WALKLEFT";
 
-		frame.startY++;
-		if (frame.startY > 3)
-			frame.startY = 0;
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
 
-		if (!(WINCX - 200 <= info.fX))
-			info.fX += info.fSpeed;
-		else
-			info.fX = WINCX - 200;
-	}
+			if (!(50 >= info.fX))
+				info.fX -= info.fSpeed;
+			else
+				info.fX = 50;
+		}
 
-	if (GetAsyncKeyState(VK_UP) & 0x8000) {
-		frameKey = L"WALKUP";
+		if (GetAsyncKeyState('D') & 0x8000) {
+			frameKey = L"WALKRIGHT";
 
-		frame.startY++;
-		if (frame.startY > 3)
-			frame.startY = 0;
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
 
-		if (!(70 >= info.fY))
-			info.fY -= info.fSpeed;
-		else
-			info.fY = 70;
-	}
+			if (!(WINCX - 200 <= info.fX))
+				info.fX += info.fSpeed;
+			else
+				info.fX = WINCX - 200;
+		}
 
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
-		frameKey = L"WALKDOWN";
-		
-		frame.startY++;
-		if (frame.startY > 3)
-			frame.startY = 0;
+		if (GetAsyncKeyState('W') & 0x8000) {
+			frameKey = L"WALKUP";
 
-		if (!(WINCY - 70 <= info.fY))
-			info.fY += info.fSpeed;
-		else
-			info.fY = WINCY - 70;
-	}
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
+
+			if (!(70 >= info.fY))
+				info.fY -= info.fSpeed;
+			else
+				info.fY = 70;
+		}
+
+		if (GetAsyncKeyState('S') & 0x8000) {
+			frameKey = L"WALKDOWN";
+
+			frame.startY++;
+			if (frame.startY > 3)
+				frame.startY = 0;
+
+			if (!(WINCY - 70 <= info.fY))
+				info.fY += info.fSpeed;
+			else
+				info.fY = WINCY - 70;
+		}
 
 
 
-	if (GetAsyncKeyState(VK_CONTROL)) {
-		frameKey = L"SAVE";
-		//curstance = PANG;
-		frame.startY++;
-		if (frame.startY > 1)
-			frame.startY = 1;
+		if (GetAsyncKeyState(VK_CONTROL)) {
+			frameKey = L"SAVE";
+			//curstance = PANG;
+			frame.startY++;
+			if (frame.startY > 1)
+				frame.startY = 1;
 
 
-	}
+		}
 
 
-	if (GetAsyncKeyState(VK_SPACE)){
-		CreateBullet();
+		if (GetAsyncKeyState(VK_SPACE)) {
+			CreateBullet();
+		}
 	}
 }
 
@@ -226,7 +327,7 @@ void Player::CreateBullet()
 	if (dwTime + 260<GetTickCount())
 	{
 		bullet = new Bullet();
-
+	//	playerc = new PlayerCollider();
 
 		bullet->setPos(info.fX, info.fY);
 
@@ -263,11 +364,11 @@ void Player::frameChange()
 	{
 		switch (curstance)
 		{
-		//case IDLE:
-		//	frame.startX = 0;
-		//	frame.EndX = 3;
-		//	frame.startY = 0;
-		//	break;
+		case IDLE:
+			frame.startX = 0;
+			frame.EndX = 3;
+			frame.startY = 0;
+			break;
 
 		case BOMB:
 			frame.startX = 0;
@@ -306,8 +407,8 @@ void Player::Collide(OBJID objid)
 
 	if (objid == BOX)
 	{
-		//setPos(100, 100);
-		
+		isEglue = true;
+		//info.fY = 285;
 	}
 
 

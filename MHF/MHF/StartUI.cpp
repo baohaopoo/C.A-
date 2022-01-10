@@ -17,13 +17,13 @@ void StartUI::Initialize()
 	BmpMgr::getInstance()->InsertBmp(L"StartUI", L"../Image/startui.bmp");
 	info.fX = 320.f;
 	info.fY = 290.f;
-	info.fCX = 500.f;
-	info.fCY = 300.f;
+	info.fCX = 445.f;
+	info.fCY = 248.f;
 }
 
 int StartUI::Update()
 {
-	if (dwTime + 500 < GetTickCount())
+	if (dwTime + 700 < GetTickCount())
 	{
 		isDead = true;
 
@@ -50,9 +50,9 @@ void StartUI::Render(HDC hdc)
 	if (suDC == nullptr) {
 		return;
 	}
-	//GdiTransparentBlt(hdc, rect.left,rect.top, 500,300, suDC, rect.left, rect.top, 500, 300, RGB(255, 202, 24));
-	BitBlt(hdc, 100, 180, 500, 300, suDC, 0, 0, SRCCOPY);
-	//GdiTransparentBlt(hdc,100, 180, info.fCX, info.fCY, hdc, 0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
+
+	
+	GdiTransparentBlt(hdc, rect.left,rect.top, info.fCX, info.fCY, suDC,0, 0, info.fCX, info.fCY, RGB(255, 202, 24));
 
 }
 

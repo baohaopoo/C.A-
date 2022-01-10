@@ -132,12 +132,17 @@ void Bullet::Render(HDC hdc)
 
 
 	//충돌박스 
-//	Rectangle(hdc, colliderBox.left, colliderBox.top, colliderBox.right, colliderBox.bottom);
+	Rectangle(hdc, colliderBox.left, colliderBox.top, colliderBox.right, colliderBox.bottom);
 
 }
 
 void Bullet::Release()
 {
+}
+
+void Bullet::Collide(OBJID objid)
+{
+
 }
 
 void Bullet::setDir(int dir)

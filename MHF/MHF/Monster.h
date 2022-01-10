@@ -3,6 +3,9 @@
 class Monster : public Object
 {
 public:
+	enum STANCE { IDLE, WALK, BOMB, PANG, END };
+
+public:
 	Monster();
 	~Monster();
 public:
@@ -13,6 +16,9 @@ public:
 	virtual void Release();
 
 
+	void frameChange();
+private:
+	TCHAR* frameKey;
 
 };
 
