@@ -41,13 +41,15 @@ void Player::Initialize()
 	BmpMgr::getInstance()->InsertBmp(L"SAVE", L"../Image/happy.bmp");
 
 
-
-
-
 	BmpMgr::getInstance()->InsertBmp(L"WALKDOWN", L"../Image/WalkDown/wu2.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKUP", L"../Image/WalkUp/wu.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKRIGHT", L"../Image/WalkRight/wr.bmp");
 	BmpMgr::getInstance()->InsertBmp(L"WALKLEFT", L"../Image/WalkLeft/wl.bmp");
+
+	BmpMgr::getInstance()->InsertBmp(L"PlayerArrow", L"../Image/playerArrow.bmp");
+	BmpMgr::getInstance()->InsertBmp(L"Shadow", L"../Image/shadow.bmp");
+
+
 
 	//computer 
 	BmpMgr::getInstance()->InsertBmp(L"COMUP", L"../Image/WalkUp/computerwu.bmp");
@@ -160,10 +162,20 @@ void Player::Render(HDC hdc)
 
 
 
+
+
+	HDC memDC3 = BmpMgr::getInstance()->FindImage(L"Shadow");
+	if (nullptr == memDC3)return;
+	GdiTransparentBlt(hdc, rect.left + 9, rect.top + 40, 45, 35, memDC3, 0, 0, 48, 34, RGB(255, 201, 14));
+
 	GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC,0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
 	//GdiTransparentBlt(hdc, rect.left, rect.top, info.fCX, info.fCY, memDC, frame.startX * (int)info.fCX,frame.startY * (int)info.fCY, info.fCX, info.fCY, RGB(255, 201, 14));
 
-		playerc->Render(hdc);
+	playerc->Render(hdc);
+
+	HDC memDC2 = BmpMgr::getInstance()->FindImage(L"PlayerArrow");
+	if (nullptr == memDC2)return;
+	GdiTransparentBlt(hdc, rect.left+15, rect.top - 20, 30, 30, memDC2, 0, 0, 49, 61, RGB(255, 201, 14));
 
 
 

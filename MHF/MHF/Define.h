@@ -14,3 +14,5 @@
 #define TILECY 40
 
 extern HWND  g_hWnd ;
+
+

@@ -46,6 +46,9 @@ private:
 	TCHAR* frameKey;
 	TCHAR* frameKey2;
 
+	TCHAR* playeraArrow;
+	TCHAR* Shdow;
+
 	STANCE curstance;
 	STANCE prestance;
 private:

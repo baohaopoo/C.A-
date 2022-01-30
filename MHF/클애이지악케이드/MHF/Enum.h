@@ -1,0 +1,7 @@
+#pragma once
+enum OBJID {  BUTTON, LOBBYBUTTON,STAGEBUTTON, TILE,ITEM,RIDE,JUSA,SODA, ITEMBOX, BACKGROUND, TREE, BOX ,OBJECT,COBJECT ,SMOKE,PLAYER,COMPUTER,PLAYERC,MONSTER,MONSTERU,BOSSMON, BULLET, MIDDLEBULLET, DOWNBULLET, UPBULLET, LEFTBULLET, RIGHTBULLET, MOUSE,UI,END};
+//box : 밀리는 object.
+//Background : 깨지긴 하는데, 아무것도 나오지 않는.
+//ItemBox : 깨질때 아이템이 나오는 박스
+//object : 나무나 더미 같이 깨지지 않는 고정단단,
+//Item  : 찐 아이템

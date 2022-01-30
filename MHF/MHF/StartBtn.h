@@ -13,5 +13,6 @@ public:
 	virtual void Render(HDC hDC);
 	virtual void Release();
 
+	TCHAR* framekey;
 };
 

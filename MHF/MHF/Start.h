@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Object.h"
 #include "StartBtn.h"
 #include "StartMBtn.h"
 class Start: public Scene
@@ -16,7 +17,8 @@ public:
 	virtual void Release();
 
 private:
-	StartBtn stBtn;
-	StartMBtn stBtnM;
+	Object* pObj;
+	Object* pObj2;
+
 };
 

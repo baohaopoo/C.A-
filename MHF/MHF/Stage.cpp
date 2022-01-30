@@ -58,62 +58,62 @@ void Stage::Initialize()
 	//오른쪽얼음 
 	for (int i = 0; i < 2; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 40 + (i * 40), 220, 42, 48);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//가운쪽얼음 
 	for (int i = 0; i < 2; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 280 + (i * 80), 220, 42, 48);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//왼쪽얼음 
 	for (int i = 0; i < 2; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj",560 + (i * 40), 220, 42, 48);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//그 위 밑얼음 2
 	for (int i = 0; i < 9; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 160 + (i * 40), 420, 40, 40);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//그 위 밑얼음 
 	for (int i = 0; i < 9; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 160 + (i * 40), 500, 40, 40);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//밑얼음 
 	for (int i = 0; i < 15; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 40 + (i * 40), 540, 40, 40);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//아이스 타일 
 	for (int i = 0; i < 2; ++i) {
 		pObj = Factory<Item>::CreateObj(L"icetile", 160 + (i * 40), 300, 42, 54);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//아이스 타일 
 	for (int i = 0; i < 2; ++i) {
 		pObj = Factory<Item>::CreateObj(L"icetile", 440 + (i * 40), 300, 42, 54);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//그 위 밑얼음3 
 	for (int i = 0; i < 9; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 160 + (i * 40), 340, 40, 40);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//아이스타일 위쪽 얼음
 	for (int i = 0; i < 3; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 160 + (i * 40), 260, 40, 40);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//아이스타일 위쪽 얼음
 	for (int i = 0; i < 3; ++i) {
 		pObj = Factory<Item>::CreateObj(L"iceobj", 400 + (i * 40), 260, 40, 40);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//위쪽나무 심기
 	for (int i = 0; i < 6; ++i) {
 		pObj = Factory<Box>::CreateObj(L"tree", 320, 40 + (i * 40), 40, 70);
-		ObjList[SKATE].push_back(pObj);
+		ObjList[BOX].push_back(pObj);
 	}
 	//나무 심기
 	for (int i = 0; i < 5; ++i) {
@@ -181,6 +181,7 @@ void Stage::Initialize()
 	pObj = Factory<Player>::CreateObj( 459,100);
 	pObj->setID(COMPUTER);
 	ObjList[COMPUTER].push_back(pObj);
+	dynamic_cast<Player*>(pObj)->SetBulletList(&ObjList[BULLET]);
 }
 
 void Stage::Update()
@@ -256,11 +257,11 @@ void Stage::LateUpdate()
 
 
 	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[BULLET]);
-	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[SKATE]);
+	CollisionMgr::CollisionRect(ObjList[COMPUTER], ObjList[SKATE]);
 	CollisionMgr::CollisionRect(ObjList[PLAYER], ObjList[TILE]);
 
 	CollisionMgr::CollisionObject(ObjList[PLAYER], ObjList[SKATE]);
-	CollisionMgr::CollisionObject(ObjList[PLAYER], ObjList[BOX]);
+	CollisionMgr::CollisionObject(ObjList[BOX], ObjList[PLAYER]);
 
 	CollisionMgr::CollisionRect(ObjList[BULLET], ObjList[SKATE]);
 

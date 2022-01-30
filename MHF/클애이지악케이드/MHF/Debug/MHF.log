@@ -1,0 +1,144 @@
+﻿  stdafx.cpp
+  UpBullet.cpp
+  Tree.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\tree.cpp(47): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\tree.cpp(50): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TileMgr.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\tilemgr.cpp(48): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\tilemgr.cpp(49): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\tilemgr.cpp(115): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+  Tile.cpp
+  StartUI.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\startui.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startui.cpp(89): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startui.cpp(91): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startui.cpp(93): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startui.cpp(96): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startui.cpp(100): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  StartBtn.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\startbtn.cpp(84): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startbtn.cpp(86): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\startbtn.cpp(90): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Start.cpp
+  Stage.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(83): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(88): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(93): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(98): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(103): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(108): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(117): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(122): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(129): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(135): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(141): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(167): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(172): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(177): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(182): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(187): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(194): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\stage.cpp(199): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SoundMgr.cpp
+  Smoke.cpp
+  SceneMgr.cpp
+  Scene.cpp
+  RightBullet.cpp
+  resUI.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\resui.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\resui.cpp(55): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\resui.cpp(58): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\resui.cpp(61): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(297): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(348): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(371): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(395): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(420): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(459): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(510): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(533): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(557): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\player.cpp(582): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+  PickMonster.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\pickmonster.cpp(153): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\pickmonster.cpp(157): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ObjMgr.cpp
+  Object.cpp
+  Mouse.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\mouse.cpp(51): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Monster.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\monster.cpp(184): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monster.cpp(189): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+c:\users\baohao\downloads\클애이지악케이드\mhf\pickmonster.cpp(132): warning C4715: 'PickMonster::Update': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  컴파일하고 있습니다...
+  MonStage.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(72): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(83): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(94): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(103): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(112): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(140): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(156): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(162): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(167): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\monstage.cpp(172): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  middleBullet.cpp
+  MHF.cpp
+  MainGame.cpp
+  Logo.cpp
+  LobbyStnBtn.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\lobbystnbtn.cpp(90): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\lobbystnbtn.cpp(96): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\lobbystnbtn.cpp(99): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\lobbystnbtn.cpp(102): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\lobbystnbtn.cpp(105): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Lobby.cpp
+  LeftBullet.cpp
+  KeyMgr.cpp
+  ItemBox.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\itembox.cpp(65): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Item.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\item.cpp(108): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  hpBar.cpp
+  downBullet.cpp
+  Computer.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\computer.cpp(146): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\computer.cpp(343): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\computer.cpp(394): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\computer.cpp(417): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\computer.cpp(441): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+c:\users\baohao\downloads\클애이지악케이드\mhf\computer.cpp(466): warning C4390: ';': 제어된 빈 문이 있습니다. 이 문이 필요합니까?
+  CollisionMgr.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\collisionmgr.cpp(22): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Bullet.cpp
+  Box.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\box.cpp(67): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\box.cpp(70): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\box.cpp(73): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  BossMonster.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\bossmonster.cpp(195): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\bossmonster.cpp(214): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\bossmonster.cpp(225): warning C4244: '-=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Boss.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(99): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(104): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(110): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(115): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(121): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(130): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(135): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(142): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\boss.cpp(147): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  BmpMgr.cpp
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  Bmp.cpp
+  Background.cpp
+c:\users\baohao\downloads\클애이지악케이드\mhf\background.cpp(66): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\background.cpp(69): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\baohao\downloads\클애이지악케이드\mhf\background.cpp(71): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  MHF.vcxproj -> C:\Users\baohao\Downloads\클애이지악케이드\Debug\MHF.exe
+  MHF.vcxproj -> C:\Users\baohao\Downloads\클애이지악케이드\Debug\MHF.pdb (Full PDB)

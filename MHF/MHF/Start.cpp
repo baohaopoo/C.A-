@@ -3,10 +3,15 @@
 #include "BmpMgr.h"
 #include "Define.h"
 #include "SceneMgr.h"
-#include"Factory.h"
+#include "Factory.h"
+#include "ObjMgr.h"
+#include "StartMBtn.h"
+#include "StartBtn.h"
 //2p ´­·¶À»¶§ btn
 
 Start::Start()
+	:pObj(nullptr), pObj2(nullptr)
+
 {
 }
 
@@ -19,8 +24,13 @@ Start::~Start()
 void Start::Initialize()
 {
 	BmpMgr::getInstance()->InsertBmp(L"START", L"../Image/Start.bmp");
-	stBtn.Initialize();
-	stBtnM.Initialize();
+	BmpMgr::getInstance()->InsertBmp(L"click2", L"../Image/button2.bmp");
+
+	if (pObj == nullptr) {
+		pObj = new StartBtn;
+		pObj->Initialize();
+	}
+
 
 	
 
@@ -29,23 +39,17 @@ void Start::Initialize()
 void Start::Update()
 {
 
-	stBtn.Update();
-
-	stBtnM.Update();
+	if(pObj !=nullptr)
+	pObj->Update();
 	
 
 }
 
 void Start::LateUpdate()
 {
+	if (pObj != nullptr)
+	pObj->LateUpdate();
 
-	stBtn.LateUpdate();
-	stBtnM.LateUpdate();
-	//if (GetAsyncKeyState(VK_RETURN))
-	//{
-	//	SceneMgr::GetInstance()->SceneChange(SceneMgr::LOBBY);
-	//	return;
-	//}
 
 }
 
@@ -56,13 +60,13 @@ void Start::Render(HDC hDC)
 
 	
 	BitBlt(hDC, 0, 0, WINCX, WINCY, memDC, 0, 0, SRCCOPY);
-	//GdiTransparentBlt(hDC,rect.left, colliderBox.top, info.fCX, info.fCY, memDC, 0, 0, info.fCX, info.fCY, RGB(255, 201, 14));
+	if (pObj != nullptr)
+	pObj->Render(hDC);
 
 
-	stBtn.Render(hDC);
-	stBtnM.Render(hDC);
 }
 
 void Start::Release()
 {
+
 }

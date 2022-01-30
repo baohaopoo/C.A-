@@ -103,27 +103,30 @@ void CollisionMgr::CollisionObject(list<Object*>& dst, list<Object*>& src)
 		{
 			if (Check_Rect(DestIter, SrcIter, &fWidth, &fHeight))
 			{
-				if (DestIter->getID() == PLAYER) {
+				{
+
 					// 상하 충돌
 					if (fWidth > fHeight)
 					{
 						// 하 충돌
 						if (DestIter->GetInfo().fY < SrcIter->GetInfo().fY)
-					DestIter->setPosY(SrcIter->GetInfo().fY + SrcIter->GetInfo().fCY);// DestIter->GetInfo().fY -20
+							SrcIter->setPosY(SrcIter->GetInfo().fY + fHeight);
 						// 상 충돌
 						else
-							DestIter->setPosY(SrcIter->GetInfo().fY - SrcIter->GetInfo().fCY);
+							SrcIter->setPosY(SrcIter->GetInfo().fY - fHeight);
 					}
 					// 좌우 충돌
 					else
 					{
 						// 우 충돌
 						if (DestIter->GetInfo().fX < SrcIter->GetInfo().fX)
-							DestIter->setPosX(SrcIter->GetInfo().fX - (SrcIter->GetInfo().fCX));// DestIter->GetInfo().fX - 10
+							SrcIter->setPosX(SrcIter->GetInfo().fX + fWidth);
 						// 좌 충돌
 						else
-							DestIter->setPosX(SrcIter->GetInfo().fX + (SrcIter->GetInfo().fCX));
+							SrcIter->setPosX(SrcIter->GetInfo().fX + -fWidth);
 					}
+
+
 				}
 			}
 		}
